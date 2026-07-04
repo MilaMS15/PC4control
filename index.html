@@ -28,9 +28,17 @@
         </div>
     </header>
 
-
     <!-- GLASSMORPHIC NAVIGATION BAR (6 Exercises) -->
     <nav class="nav-exercises">
+        <!-- Botón del Repositorio de GitHub arriba de los ejercicios -->
+        <div class="repo-link-container">
+            <a href="https://github.com/MilaMS15/PC4control" target="_blank" class="repo-btn">
+                <svg class="github-icon" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 6px;">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+                Ver Código en GitHub (Repositorio)
+            </a>
+        </div>
         <div class="nav-container">
             <button class="nav-btn active" onclick="switchExercise(1)">
                 <span>📂</span> Ejercicio 1 (Guía)
@@ -67,11 +75,9 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                <strong>Amazon Robotics</strong> controla el peso de sensores de navegación. Cada hora
-                                se toman subgrupos de <strong>n = 5</strong> sensores. A continuación, se presenta la
-                                matriz de datos de peso en gramos obtenida en las últimas 5 horas de muestreo.
+                                <strong>Amazon Robotics</strong> controla el peso de sensores de navegación. Cada hora se toman subgrupos de <strong>n = 5</strong> sensores. A continuación, se presenta la matriz de datos de peso en gramos obtenida en las últimas 5 horas de muestreo.
                             </div>
-
+                            
                             <div class="table-container">
                                 <table>
                                     <thead>
@@ -131,12 +137,9 @@
                         </div>
 
                         <div>
-                            <div class="evidence-container"
-                                onclick="openLightbox('img/image.png', 'Ejercicio 1 - Enunciado de Amazon Robotics')">
-                                <img src="img/image.png" alt="Enunciado Ejercicio 1"
-                                    onerror="this.src='img/image.png';">
-                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span
-                                        class="zoom-text">Ampliar Enunciado</span></div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 1 - Enunciado de Amazon Robotics')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 1" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
                             </div>
                         </div>
                     </div>
@@ -154,32 +157,18 @@
                                 <br><br>
                                 <strong>Justificación Técnica de Selección:</strong>
                                 <br>
-                                - La variable bajo control (peso del sensor en gramos) es de naturaleza
-                                <strong>continua</strong> y cuantitativa.
+                                - La variable bajo control (peso del sensor en gramos) es de naturaleza <strong>continua</strong> y cuantitativa.
                                 <br>
-                                - El tamaño del subgrupo muestral tomado cada hora es pequeño (<strong>n = 5 &le;
-                                    8</strong>). Según la teoría de control de procesos, para subgrupos de este tamaño
-                                se prefiere estimar la variabilidad mediante el rango R (Carta X̅-R) debido a su
-                                simplicidad y efectividad práctica, en lugar del desvío estándar S.
+                                - El tamaño del subgrupo muestral tomado cada hora es pequeño (<strong>n = 5 &le; 8</strong>). Según la teoría de control de procesos, para subgrupos de este tamaño se prefiere estimar la variabilidad mediante el rango R (Carta X̅-R) debido a su simplicidad y efectividad práctica, en lugar del desvío estándar S.
                             </div>
                         </div>
                         <div>
-                            <div class="interpretation-card"
-                                style="border-left-color: var(--error); background: rgba(239, 68, 68, 0.03); height: 100%;">
+                            <div class="interpretation-card" style="border-left-color: var(--error); background: rgba(239, 68, 68, 0.03); height: 100%;">
                                 <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
                                 <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
-                                    <strong>En Excel:</strong> Los cálculos muestran de forma contundente que el proceso
-                                    está <strong>fuera de control</strong>. En el gráfico X̅, los subgrupos de las Horas
-                                    1 y 2 caen por debajo del LCL (55.122 g), mientras que las Horas 4 y 5 superan el
-                                    UCL (55.422 g). Esto revela una deriva lineal (tendencia ascendente) sistemática de
-                                    la media. El gráfico R se mantiene estable dentro de límites.
+                                    <strong>En Excel:</strong> Los cálculos muestran de forma contundente que el proceso está <strong>fuera de control</strong>. En el gráfico X̅, los subgrupos de las Horas 1 y 2 caen por debajo del LCL (55.122 g), mientras que las Horas 4 y 5 superan el UCL (55.422 g). Esto revela una deriva lineal (tendencia ascendente) sistemática de la media. El gráfico R se mantiene estable dentro de límites.
                                     <br><br>
-                                    <strong>En Minitab Assistant:</strong> El reporte confirma plenamente esta
-                                    inestabilidad, emitiendo una <strong>alerta roja de estabilidad</strong> debido a
-                                    que el <strong>80.0% de los subgrupos (4 de 5) se encuentran fuera de
-                                        límites</strong>. Minitab concluye que el promedio del proceso no es estable y
-                                    advierte explícitamente no utilizar estos límites para el control de la producción
-                                    futura.
+                                    <strong>En Minitab Assistant:</strong> El reporte confirma plenamente esta inestabilidad, emitiendo una <strong>alerta roja de estabilidad</strong> debido a que el <strong>80.0% de los subgrupos (4 de 5) se encuentran fuera de límites</strong>. Minitab concluye que el promedio del proceso no es estable y advierte explícitamente no utilizar estos límites para el control de la producción futura.
                                 </p>
                             </div>
                         </div>
@@ -194,8 +183,7 @@
                     <div style="margin-bottom: 25px;">
                         <h3 style="color: var(--highlight); margin-bottom: 10px;">Cálculo Analítico y Fórmulas</h3>
                         <p style="font-size: 0.95rem; color: #d1c9e8; margin-bottom: 15px;">
-                            Aplicación de las fórmulas de límites en Excel utilizando constantes oficiales para subgrupo
-                            n=5:
+                            Aplicación de las fórmulas de límites en Excel utilizando constantes oficiales para subgrupo n=5:
                         </p>
                         <div class="hipotesis-grid">
                             <div class="hipotesis-card">
@@ -292,81 +280,59 @@
                             </div>
                             <div class="interactive-svg-wrapper">
                                 <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
-                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="90" x2="520" y2="90" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="154" x2="520" y2="154" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="212" x2="520" y2="212" stroke="#1f1837" stroke-width="1" />
-
-                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-
-                                    <text x="25" y="216" fill="#a78bfa" font-size="10"
-                                        font-family="Space Grotesk">54.8</text>
-                                    <text x="25" y="158" fill="#a78bfa" font-size="10"
-                                        font-family="Space Grotesk">55.2</text>
-                                    <text x="25" y="94" fill="#a78bfa" font-size="10"
-                                        font-family="Space Grotesk">55.6</text>
-                                    <text x="25" y="30" fill="#a78bfa" font-size="10"
-                                        font-family="Space Grotesk">56.0</text>
-
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="90" x2="520" y2="90" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="154" x2="520" y2="154" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="212" x2="520" y2="212" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
+                                    <text x="25" y="216" fill="#a78bfa" font-size="10" font-family="Space Grotesk">54.8</text>
+                                    <text x="25" y="158" fill="#a78bfa" font-size="10" font-family="Space Grotesk">55.2</text>
+                                    <text x="25" y="94" fill="#a78bfa" font-size="10" font-family="Space Grotesk">55.6</text>
+                                    <text x="25" y="30" fill="#a78bfa" font-size="10" font-family="Space Grotesk">56.0</text>
+                                    
                                     <!-- UCL: 55.422 (Y=124.3) -->
-                                    <line x1="50" y1="124.3" x2="520" y2="124.3" class="svg-limit-line"
-                                        stroke="#ef4444" />
-                                    <text x="522" y="127" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL
-                                        (55.422)</text>
-
+                                    <line x1="50" y1="124.3" x2="520" y2="124.3" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="127" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL (55.422)</text>
+                                    
                                     <!-- CL: 55.272 (Y=154) -->
-                                    <line x1="50" y1="154" x2="520" y2="154" class="svg-cl-line" stroke="#10b981" />
-                                    <text x="522" y="157" fill="#10b981" font-size="9" font-family="Space Grotesk">CL
-                                        (55.272)</text>
-
+                                    <line x1="50" y1="154" x2="520" y2="154" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="157" fill="#10b981" font-size="9" font-family="Space Grotesk">CL (55.272)</text>
+                                    
                                     <!-- LCL: 55.122 (Y=175.4) -->
-                                    <line x1="50" y1="175.4" x2="520" y2="175.4" class="svg-limit-line"
-                                        stroke="#ef4444" />
-                                    <text x="522" y="178" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL
-                                        (55.122)</text>
+                                    <line x1="50" y1="175.4" x2="520" y2="175.4" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="178" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL (55.122)</text>
 
-                                    <polyline points="100,212.8 190,184.3 280,158.6 370,124.3 460,90"
-                                        class="svg-data-line" stroke="#d8b4fe" />
-
-                                    <circle cx="100" cy="212.8" r="6" class="svg-point out-of-control" data-sg="1"
-                                        data-type="xbar" data-val="54.860" data-status="Fuera de límites (Bajo LCL)"
-                                        data-lcl="55.122" data-ucl="55.422" data-cl="55.272"
-                                        data-obs="54.8, 54.9, 55.0, 54.7, 54.9" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="190" cy="184.3" r="6" class="svg-point out-of-control" data-sg="2"
-                                        data-type="xbar" data-val="55.060" data-status="Fuera de límites (Bajo LCL)"
-                                        data-lcl="55.122" data-ucl="55.422" data-cl="55.272"
-                                        data-obs="55.1, 55.0, 54.9, 55.2, 55.1" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="280" cy="158.6" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="3" data-type="xbar" data-val="55.240"
-                                        data-status="Dentro de Control" data-lcl="55.122" data-ucl="55.422"
-                                        data-cl="55.272" data-obs="55.2, 55.3, 55.1, 55.2, 55.4"
-                                        onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()" />
-                                    <circle cx="370" cy="124.3" r="6" class="svg-point out-of-control" data-sg="4"
-                                        data-type="xbar" data-val="55.480" data-status="Fuera de límites (Sobre UCL)"
-                                        data-lcl="55.122" data-ucl="55.422" data-cl="55.272"
-                                        data-obs="55.5, 55.4, 55.6, 55.5, 55.4" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="460" cy="90" r="6" class="svg-point out-of-control" data-sg="5"
-                                        data-type="xbar" data-val="55.720" data-status="Fuera de límites (Sobre UCL)"
-                                        data-lcl="55.122" data-ucl="55.422" data-cl="55.272"
-                                        data-obs="55.8, 55.7, 55.6, 55.8, 55.7" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-
-                                    <text x="94" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora
-                                        1</text>
-                                    <text x="184" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora
-                                        2</text>
-                                    <text x="274" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora
-                                        3</text>
-                                    <text x="364" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora
-                                        4</text>
-                                    <text x="454" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora
-                                        5</text>
+                                    <polyline points="100,212.8 190,184.3 280,158.6 370,124.3 460,90" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="212.8" r="6" class="svg-point out-of-control" 
+                                            data-sg="1" data-type="xbar" data-val="54.860" data-status="Fuera de límites (Bajo LCL)" 
+                                            data-lcl="55.122" data-ucl="55.422" data-cl="55.272" data-obs="54.8, 54.9, 55.0, 54.7, 54.9"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="190" cy="184.3" r="6" class="svg-point out-of-control" 
+                                            data-sg="2" data-type="xbar" data-val="55.060" data-status="Fuera de límites (Bajo LCL)" 
+                                            data-lcl="55.122" data-ucl="55.422" data-cl="55.272" data-obs="55.1, 55.0, 54.9, 55.2, 55.1"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="280" cy="158.6" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="55.240" data-status="Dentro de Control" 
+                                            data-lcl="55.122" data-ucl="55.422" data-cl="55.272" data-obs="55.2, 55.3, 55.1, 55.2, 55.4"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="370" cy="124.3" r="6" class="svg-point out-of-control" 
+                                            data-sg="4" data-type="xbar" data-val="55.480" data-status="Fuera de límites (Sobre UCL)" 
+                                            data-lcl="55.122" data-ucl="55.422" data-cl="55.272" data-obs="55.5, 55.4, 55.6, 55.5, 55.4"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="90" r="6" class="svg-point out-of-control" 
+                                            data-sg="5" data-type="xbar" data-val="55.720" data-status="Fuera de límites (Sobre UCL)" 
+                                            data-lcl="55.122" data-ucl="55.422" data-cl="55.272" data-obs="55.8, 55.7, 55.6, 55.8, 55.7"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                            
+                                    <text x="94" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 1</text>
+                                    <text x="184" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 2</text>
+                                    <text x="274" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 3</text>
+                                    <text x="364" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 4</text>
+                                    <text x="454" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 5</text>
                                 </svg>
                             </div>
                         </div>
@@ -383,74 +349,54 @@
                             </div>
                             <div class="interactive-svg-wrapper">
                                 <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
-                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="80.9" x2="520" y2="80.9" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="170" x2="520" y2="170" stroke="#1f1837" stroke-width="1" />
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="80.9" x2="520" y2="80.9" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="170" x2="520" y2="170" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
+                                    <text x="25" y="234" fill="#a78bfa" font-size="10" font-family="Space Grotesk">0.0</text>
+                                    <text x="25" y="174" fill="#a78bfa" font-size="10" font-family="Space Grotesk">0.26</text>
+                                    <text x="25" y="85" fill="#a78bfa" font-size="10" font-family="Space Grotesk">0.55</text>
+                                    
+                                    <line x1="50" y1="80.9" x2="520" y2="80.9" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="84" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL (0.550)</text>
+                                    
+                                    <line x1="50" y1="170" x2="520" y2="170" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="173" fill="#10b981" font-size="9" font-family="Space Grotesk">CL (0.260)</text>
+                                    
+                                    <line x1="50" y1="230" x2="520" y2="230" class="svg-cl-line" stroke="#ef4444"/>
+                                    <text x="522" y="228" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL (0.000)</text>
 
-                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-
-                                    <text x="25" y="234" fill="#a78bfa" font-size="10"
-                                        font-family="Space Grotesk">0.0</text>
-                                    <text x="25" y="174" fill="#a78bfa" font-size="10"
-                                        font-family="Space Grotesk">0.26</text>
-                                    <text x="25" y="85" fill="#a78bfa" font-size="10"
-                                        font-family="Space Grotesk">0.55</text>
-
-                                    <line x1="50" y1="80.9" x2="520" y2="80.9" class="svg-limit-line"
-                                        stroke="#ef4444" />
-                                    <text x="522" y="84" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL
-                                        (0.550)</text>
-
-                                    <line x1="50" y1="170" x2="520" y2="170" class="svg-cl-line" stroke="#10b981" />
-                                    <text x="522" y="173" fill="#10b981" font-size="9" font-family="Space Grotesk">CL
-                                        (0.260)</text>
-
-                                    <line x1="50" y1="230" x2="520" y2="230" class="svg-cl-line" stroke="#ef4444" />
-                                    <text x="522" y="228" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL
-                                        (0.000)</text>
-
-                                    <polyline points="100,157.7 190,157.7 280,157.7 370,188.5 460,188.5"
-                                        class="svg-data-line" stroke="#a78bfa" />
-
-                                    <circle cx="100" cy="157.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="1" data-type="r" data-val="0.300"
-                                        data-status="Dentro de Control" data-lcl="0.000" data-ucl="0.550"
-                                        data-cl="0.260" data-obs="54.8, 54.9, 55.0, 54.7, 54.9"
-                                        onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()" />
-                                    <circle cx="190" cy="157.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="2" data-type="r" data-val="0.300"
-                                        data-status="Dentro de Control" data-lcl="0.000" data-ucl="0.550"
-                                        data-cl="0.260" data-obs="55.1, 55.0, 54.9, 55.2, 55.1"
-                                        onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()" />
-                                    <circle cx="280" cy="157.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="3" data-type="r" data-val="0.300"
-                                        data-status="Dentro de Control" data-lcl="0.000" data-ucl="0.550"
-                                        data-cl="0.260" data-obs="55.2, 55.3, 55.1, 55.2, 55.4"
-                                        onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()" />
-                                    <circle cx="370" cy="188.5" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="4" data-type="r" data-val="0.200"
-                                        data-status="Dentro de Control" data-lcl="0.000" data-ucl="0.550"
-                                        data-cl="0.260" data-obs="55.5, 55.4, 55.6, 55.5, 55.4"
-                                        onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()" />
-                                    <circle cx="460" cy="188.5" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="5" data-type="r" data-val="0.200"
-                                        data-status="Dentro de Control" data-lcl="0.000" data-ucl="0.550"
-                                        data-cl="0.260" data-obs="55.8, 55.7, 55.6, 55.8, 55.7"
-                                        onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()" />
-
-                                    <text x="94" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora
-                                        1</text>
-                                    <text x="184" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora
-                                        2</text>
-                                    <text x="274" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora
-                                        3</text>
-                                    <text x="364" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora
-                                        4</text>
-                                    <text x="454" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora
-                                        5</text>
+                                    <polyline points="100,157.7 190,157.7 280,157.7 370,188.5 460,188.5" class="svg-data-line" stroke="#a78bfa"/>
+                                    
+                                    <circle cx="100" cy="157.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="r" data-val="0.300" data-status="Dentro de Control" 
+                                            data-lcl="0.000" data-ucl="0.550" data-cl="0.260" data-obs="54.8, 54.9, 55.0, 54.7, 54.9"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="190" cy="157.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="r" data-val="0.300" data-status="Dentro de Control" 
+                                            data-lcl="0.000" data-ucl="0.550" data-cl="0.260" data-obs="55.1, 55.0, 54.9, 55.2, 55.1"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="280" cy="157.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="r" data-val="0.300" data-status="Dentro de Control" 
+                                            data-lcl="0.000" data-ucl="0.550" data-cl="0.260" data-obs="55.2, 55.3, 55.1, 55.2, 55.4"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="370" cy="188.5" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="r" data-val="0.200" data-status="Dentro de Control" 
+                                            data-lcl="0.000" data-ucl="0.550" data-cl="0.260" data-obs="55.5, 55.4, 55.6, 55.5, 55.4"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="188.5" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="5" data-type="r" data-val="0.200" data-status="Dentro de Control" 
+                                            data-lcl="0.000" data-ucl="0.550" data-cl="0.260" data-obs="55.8, 55.7, 55.6, 55.8, 55.7"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                            
+                                    <text x="94" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 1</text>
+                                    <text x="184" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 2</text>
+                                    <text x="274" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 3</text>
+                                    <text x="364" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 4</text>
+                                    <text x="454" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 5</text>
                                 </svg>
                             </div>
                         </div>
@@ -460,10 +406,8 @@
                     <div>
                         <div class="chart-details-panel">
                             <h3 class="chart-details-title">Detalles de Auditoría</h3>
-                            <div class="info-placeholder"
-                                style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
-                                Pase el cursor sobre los círculos del gráfico para auditar los subgrupos estadísticos de
-                                Amazon Robotics.
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                                Pase el cursor sobre los círculos del gráfico para auditar los subgrupos estadísticos de Amazon Robotics.
                             </div>
                             <div class="info-content" style="display: none;">
                                 <div class="chart-details-row">
@@ -482,8 +426,7 @@
                                     <span>Muestra del Subgrupo:</span>
                                     <span class="info-obs" style="font-family: monospace;">-</span>
                                 </div>
-                                <div
-                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
                                     <div class="chart-details-row" style="flex-direction: column;">
                                         <span>Límite Superior (UCL):</span>
                                         <span class="info-ucl">-</span>
@@ -514,29 +457,26 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Excel: Cálculo analítico de límites y estadísticas de subgrupo')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Excel: Cálculo analítico de límites y estadísticas de subgrupo')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Fórmulas Aplicadas en la Hoja Excel</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
                                         El libro Excel calcula dinámicamente las estadísticas de cada subgrupo:
                                     </p>
                                     <div class="code-snippet">
-                                        Media X̅: =PROMEDIO(B5:F5)
-                                        Rango R: =MAX(B5:F5)-MIN(B5:F5)
-                                        Grand Mean X̿: =PROMEDIO(G5:G9)
-                                        Mean Range R̄: =PROMEDIO(H5:H9)
+Media X̅: =PROMEDIO(B5:F5)
+Rango R: =MAX(B5:F5)-MIN(B5:F5)
+Grand Mean X̿: =PROMEDIO(G5:G9)
+Mean Range R̄: =PROMEDIO(H5:H9)
 
-                                        Media LCL/UCL: =G10 &plusmn; (0.577 * H10)
-                                        Rango UCL: =2.114 * H10
-                                        Rango LCL: =0.000 * H10
+Media LCL/UCL: =G10 &plusmn; (0.577 * H10)
+Rango UCL: =2.114 * H10
+Rango LCL: =0.000 * H10
                                     </div>
                                 </div>
                             </div>
@@ -556,26 +496,18 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Minitab Assistant: Informe de estabilidad del peso')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Minitab Assistant: Informe de estabilidad del peso')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Análisis de Estabilidad en Minitab</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.7;">
-                                        El Asistente de Minitab emite una <strong>Alerta Roja</strong> de inestabilidad,
-                                        detectando que el <strong>80.0%</strong> de los subgrupos están fuera de
-                                        control.
+                                        El Asistente de Minitab emite una <strong>Alerta Roja</strong> de inestabilidad, detectando que el <strong>80.0%</strong> de los subgrupos están fuera de control. 
                                         <br><br>
-                                        Minitab genera de forma automatizada los mismos límites calculados en Excel (UCL
-                                        = 55.422, LCL = 55.122) y confirma el veredicto de proceso no estable. Advierte
-                                        que los límites actuales están distorsionados por la deriva y no deben emplearse
-                                        para control futuro.
+                                        Minitab genera de forma automatizada los mismos límites calculados en Excel (UCL = 55.422, LCL = 55.122) y confirma el veredicto de proceso no estable. Advierte que los límites actuales están distorsionados por la deriva y no deben emplearse para control futuro.
                                     </p>
                                 </div>
                             </div>
@@ -591,11 +523,9 @@
                     <div class="concordancia-banner">
                         <div class="concordancia-icon">⚠️</div>
                         <div>
-                            <strong style="color: #ffffff; font-size: 1.1rem;">Diagnóstico Estadístico Crítico: PROCESO
-                                FUERA DE CONTROL</strong>
+                            <strong style="color: #ffffff; font-size: 1.1rem;">Diagnóstico Estadístico Crítico: PROCESO FUERA DE CONTROL</strong>
                             <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
-                                La media del proceso presenta un desplazamiento lineal severo de deriva (drift),
-                                cruzando ambos límites de control.
+                                La media del proceso presenta un desplazamiento lineal severo de deriva (drift), cruzando ambos límites de control.
                             </p>
                         </div>
                     </div>
@@ -621,8 +551,7 @@
                                     <h4>Acción Correctiva de Urgencia</h4>
                                     <p>Recalibración de inyectores y parada de línea</p>
                                 </div>
-                                <span class="badge badge-ns"
-                                    style="background-color: rgba(245,158,11,0.2); color: var(--warning); border-color: var(--warning);">Acción</span>
+                                <span class="badge badge-ns" style="background-color: rgba(245,158,11,0.2); color: var(--warning); border-color: var(--warning);">Acción</span>
                             </div>
                         </div>
 
@@ -630,27 +559,18 @@
                             <h3 style="color: var(--highlight);">Análisis Técnico y Acciones Correctivas</h3>
                             <ul>
                                 <li>
-                                    <strong>Patrón de Desplazamiento (Drift):</strong> Se observa una tendencia
-                                    ascendente continua y directa. Este comportamiento no es aleatorio; es una causa
-                                    asignable típica de <strong>desgaste progresivo de moldes</strong>,
-                                    <strong>dilatación térmica de cabezales dosificadores</strong> o <strong>acumulación
-                                        de residuos en las boquillas de dosificación</strong>.
+                                    <strong>Patrón de Desplazamiento (Drift):</strong> Se observa una tendencia ascendente continua y directa. Este comportamiento no es aleatorio; es una causa asignable típica de <strong>desgaste progresivo de moldes</strong>, <strong>dilatación térmica de cabezales dosificadores</strong> o <strong>acumulación de residuos en las boquillas de dosificación</strong>.
                                 </li>
                                 <li class="corrective">
                                     <strong>Plan de Contingencia de Ingeniería:</strong>
                                     <br>
-                                    1. <strong>Paro de Producción:</strong> Detener inmediatamente la calibración de
-                                    sensores.
+                                    1. <strong>Paro de Producción:</strong> Detener inmediatamente la calibración de sensores.
                                     <br>
-                                    2. <strong>Intervención y Limpieza:</strong> Limpiar e inspeccionar el sistema
-                                    dosificador de peso.
+                                    2. <strong>Intervención y Limpieza:</strong> Limpiar e inspeccionar el sistema dosificador de peso.
                                     <br>
-                                    3. <strong>Calibración:</strong> Ajustar los sensores de peso del sistema robotizado
-                                    a su especificación nominal de 55.0 gramos.
+                                    3. <strong>Calibración:</strong> Ajustar los sensores de peso del sistema robotizado a su especificación nominal de 55.0 gramos.
                                     <br>
-                                    4. <strong>Aislamiento de Lotes:</strong> Retener el producto fabricado en las horas
-                                    1, 2, 4 y 5 para inspección al 100% y descarte de sensores fuera de tolerancias de
-                                    diseño.
+                                    4. <strong>Aislamiento de Lotes:</strong> Retener el producto fabricado en las horas 1, 2, 4 y 5 para inspección al 100% y descarte de sensores fuera de tolerancias de diseño.
                                 </li>
                             </ul>
                         </div>
@@ -662,16 +582,11 @@
             <section id="ex1-conclusiones">
                 <h2 class="section-title">Conclusiones</h2>
                 <div class="card">
-                    <h3 style="color: var(--highlight); margin-bottom: 15px;">Conclusión Analítica y Veredicto Final
-                    </h3>
+                    <h3 style="color: var(--highlight); margin-bottom: 15px;">Conclusión Analítica y Veredicto Final</h3>
                     <p style="font-size: 0.95rem; line-height: 1.7; text-align: justify;">
-                        Se concluye con un nivel de confianza del 99.73% que el proceso de control de peso de sensores
-                        para <strong>Amazon Robotics</strong> se encuentra en estado <strong>fuera de control
-                            estadístico</strong>.
-                        La inestabilidad no es producto de la dispersión de las piezas individuales (el rango se
-                        mantiene estable), sino de un <strong>desplazamiento sistemático del promedio (drift)</strong>.
-                        La aplicación del plan correctivo propuesto permitirá estabilizar la línea de producción y
-                        asegurar la calidad requerida de 55.0 gramos nominales.
+                        Se concluye con un nivel de confianza del 99.73% que el proceso de control de peso de sensores para <strong>Amazon Robotics</strong> se encuentra en estado <strong>fuera de control estadístico</strong>. 
+                        La inestabilidad no es producto de la dispersión de las piezas individuales (el rango se mantiene estable), sino de un <strong>desplazamiento sistemático del promedio (drift)</strong>.
+                        La aplicación del plan correctivo propuesto permitirá estabilizar la línea de producción y asegurar la calidad requerida de 55.0 gramos nominales.
                     </p>
                 </div>
             </section>
@@ -695,73 +610,78 @@
                             <tbody>
                                 <tr>
                                     <td style="white-space: normal; font-size: 0.85rem;">
-                                        "quieor que leas toda la guia oficial a fondo xq es tood lo que pide el profesor
-                                        es mas mejor pasalo todo a md de ese word y adapta nuestro
-                                        index_ejercicicos.html"
+                                        "quieor que leas toda la guia oficial a fondo xq es tood lo que pide el profesor es mas mejor pasalo todo a md de ese word y adapta nuestro index_ejercicicos.html"
                                     </td>
-                                    <td>Extraer el contenido de la guía oficial de Word y reestructurar el archivo HTML
-                                        interactivo.</td>
+                                    <td>Extraer el contenido de la guía oficial de Word y reestructurar el archivo HTML interactivo.</td>
                                     <td style="white-space: normal; font-size: 0.85rem;">
-                                        Estructuración del contenido en Markdown y propuesta de un plan para adaptar el
-                                        HTML a las directrices oficiales.
+                                        Estructuración del contenido en Markdown y propuesta de un plan para adaptar el HTML a las directrices oficiales.
                                     </td>
                                     <td style="white-space: normal; font-size: 0.85rem;">
                                         Aprobé la adaptación e integración del caso Amazon Robotics en el dashboard.
                                     </td>
                                     <td style="white-space: normal; font-size: 0.85rem;">
-                                        La IA permite agilizar el diseño de interfaces fluidas para presentar el
-                                        análisis estadístico de manera limpia.
+                                        La IA permite agilizar el diseño de interfaces fluidas para presentar el análisis estadístico de manera limpia.
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="white-space: normal; font-size: 0.85rem;">
-                                        "Calcula los límites de control estadísticos para el problema de Amazon Robotics
-                                        con subgrupos de n=5 y determina si el proceso está en control."
+                                        "Calcula los límites de control estadísticos para el problema de Amazon Robotics con subgrupos de n=5 y determina si el proceso está en control."
                                     </td>
-                                    <td>Obtener el cálculo exacto de límites de la carta X̅-R y validar la estabilidad
-                                        del proceso.</td>
+                                    <td>Obtener el cálculo exacto de límites de la carta X̅-R y validar la estabilidad del proceso.</td>
                                     <td style="white-space: normal; font-size: 0.85rem;">
-                                        Cálculo analítico detallado de límites: UCL=55.4220, CL=55.2720, LCL=55.1220.
-                                        Veredicto: Fuera de control.
+                                        Cálculo analítico detallado de límites: UCL=55.4220, CL=55.2720, LCL=55.1220. Veredicto: Fuera de control.
                                     </td>
                                     <td style="white-space: normal; font-size: 0.85rem;">
-                                        Contrasté estos cálculos con Minitab y los programé dinámicamente en
-                                        excel/solucion.xlsx.
+                                        Contrasté estos cálculos con Minitab y los programé dinámicamente en excel/solucion.xlsx.
                                     </td>
                                     <td style="white-space: normal; font-size: 0.85rem;">
-                                        Me ayudó a comprender cómo identificar tendencias mecánicas en gráficos de
-                                        control y proponer acciones correctivas en planta.
+                                        Me ayudó a comprender cómo identificar tendencias mecánicas en gráficos de control y proponer acciones correctivas en planta.
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
 
-                    <div class="interpretation-card"
-                        style="margin-top: 30px; border-left-color: var(--success); background-color: rgba(16, 185, 129, 0.03);">
+                    <div class="interpretation-card" style="margin-top: 30px; border-left-color: var(--success); background-color: rgba(16, 185, 129, 0.03);">
                         <h3 style="color: var(--success);">Declaración de Integridad Académica</h3>
                         <p style="font-size: 0.95rem; line-height: 1.7; color: #e2dcf7; margin-top: 10px;">
-                            Yo, <strong>Milagros Lidia Mayta Soto</strong>, declaro bajo juramento que la identificación
-                            del gráfico de control adecuado, el análisis de estabilidad del peso de sensores, la
-                            detección de la deriva del promedio y las propuestas correctivas de ingeniería presentadas
-                            en esta PC4 son de mi <strong>autoría intelectual y razonamiento exclusivo</strong>.
+                            Yo, <strong>Milagros Lidia Mayta Soto</strong>, declaro bajo juramento que la identificación del gráfico de control adecuado, el análisis de estabilidad del peso de sensores, la detección de la deriva del promedio y las propuestas correctivas de ingeniería presentadas en esta PC4 son de mi <strong>autoría intelectual y razonamiento exclusivo</strong>.
                             <br><br>
-                            El apoyo de la Inteligencia Artificial se limitó al <strong>35% en maquetación de la
-                                interfaz web (glassmorphism)</strong>, la creación interactiva de gráficos SVG y la
-                            estructura inicial del libro Excel. Toda interpretación crítica responde a mi aprendizaje de
-                            la materia.
+                            El apoyo de la Inteligencia Artificial se limitó al <strong>35% en maquetación de la interfaz web (glassmorphism)</strong>, la creación interactiva de gráficos SVG y la estructura inicial del libro Excel. Toda interpretación crítica responde a mi aprendizaje de la materia.
                         </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 8: ANEXO DE DESCARGAS -->
+            <section id="ex1-anexo">
+                <h2 class="section-title">Anexo: Descarga de <span>Recursos</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box" style="font-size: 1rem; line-height: 1.6;">
+                                Descargue los archivos oficiales de soporte correspondientes al <strong>Ejercicio 1</strong>. Cuenta con la solución completa en el libro Excel y el proyecto de datos en Minitab para contrastar los resultados.
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+                            <a href="excel/solucion.xlsx" download class="nav-btn active" style="text-decoration: none; justify-content: center; text-align: center;">
+                                <span>📥</span> Descargar Solución Excel (.xlsx)
+                            </a>
+                            <a href="minitab/proyecto.mpx" download class="nav-btn" style="text-decoration: none; justify-content: center; text-align: center; border-color: var(--border-color); background: rgba(124, 58, 237, 0.1); color: var(--text-secondary);">
+                                <span>📥</span> Descargar Proyecto Minitab (.mpx)
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
         </div>
 
-
+        
         <!-- ============================================== -->
         <!-- EJERCICIO 2 -->
         <!-- ============================================== -->
         <div class="exercise-pane" id="exercise-2">
-
+            
             <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
             <section id="ex2-enunciado">
                 <h2 class="section-title">Descripción del <span>problema</span></h2>
@@ -769,14 +689,11 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio
-                                    2</strong>. Explique las variables que se miden, los factores de perturbación
-                                controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 2</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
                             </div>
                             <div class="interpretation-card">
                                 <h3>Interpretación del Enunciado:</h3>
-                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de
-                                    la prueba.</p>
+                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
                             </div>
                             <div class="table-container">
                                 <table>
@@ -820,12 +737,9 @@
                             </div>
                         </div>
                         <div>
-                            <div class="evidence-container"
-                                onclick="openLightbox('img/image.png', 'Ejercicio 2 - Enunciado')">
-                                <img src="img/image.png" alt="Enunciado Ejercicio 2"
-                                    onerror="this.src='img/image.png';">
-                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span
-                                        class="zoom-text">Ampliar Enunciado</span></div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 2 - Enunciado')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 2" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
                             </div>
                         </div>
                     </div>
@@ -839,8 +753,7 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R,
-                                X̅-S, p, np, c, u)
+                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
                                 <br><br>
                                 <strong>Justificación Técnica de Selección:</strong>
                                 <br>
@@ -852,17 +765,12 @@
                             </div>
                         </div>
                         <div>
-                            <div class="interpretation-card"
-                                style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
+                            <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
                                 <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
                                 <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
-                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en
-                                    los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de
-                                    límites).
+                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
                                     <br><br>
-                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab:
-                                    porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio
-                                    son estables).
+                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
                                 </p>
                             </div>
                         </div>
@@ -934,59 +842,48 @@
                         <div class="control-chart-container">
                             <div class="control-chart-header">
                                 <div class="control-chart-title">
-                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) -
-                                    Plantilla Ejercicio 2
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 2
                                 </div>
                             </div>
                             <div class="interactive-svg-wrapper">
                                 <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
-                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1" />
-
-                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
                                     <!-- UCL: Y=50 -->
-                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444" />
-                                    <text x="522" y="53" fill="#ef4444" font-size="9"
-                                        font-family="Space Grotesk">UCL</text>
-
+                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    
                                     <!-- CL: Y=125 -->
-                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981" />
-                                    <text x="522" y="128" fill="#10b981" font-size="9"
-                                        font-family="Space Grotesk">CL</text>
-
+                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    
                                     <!-- LCL: Y=200 -->
-                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444" />
-                                    <text x="522" y="203" fill="#ef4444" font-size="9"
-                                        font-family="Space Grotesk">LCL</text>
+                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
 
-                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line"
-                                        stroke="#d8b4fe" />
-
-                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="1" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="2" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="3" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="4" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
+                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
                                 </svg>
                             </div>
                         </div>
@@ -996,8 +893,7 @@
                     <div>
                         <div class="chart-details-panel">
                             <h3 class="chart-details-title">Detalles de Auditoría (Ex2)</h3>
-                            <div class="info-placeholder"
-                                style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
                                 Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
                             </div>
                             <div class="info-content" style="display: none;">
@@ -1017,8 +913,7 @@
                                     <span>Valores Observados:</span>
                                     <span class="info-obs" style="font-family: monospace;">-</span>
                                 </div>
-                                <div
-                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
                                     <div class="chart-details-row" style="flex-direction: column;">
                                         <span>Límite UCL:</span>
                                         <span class="info-ucl">-</span>
@@ -1049,21 +944,16 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 2 - Excel')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 2 - Excel')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Fórmulas y Estructura en Excel</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por
-                                        ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de
-                                        control de forma dinámica en base a las constantes del subgrupo).
+                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
                                     </p>
                                 </div>
                             </div>
@@ -1083,21 +973,16 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 2 Minitab')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 2 Minitab')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Diagnóstico e Informes del Proceso</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        Coloque aquí el reporte de estabilidad generado por el software especializado
-                                        Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la
-                                        carta de control.
+                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
                                     </p>
                                 </div>
                             </div>
@@ -1115,8 +1000,7 @@
                         <div>
                             <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 2)</strong>
                             <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
-                                Describa si el proceso se encuentra bajo control estadístico o si presenta
-                                inestabilidad.
+                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
                             </p>
                         </div>
                     </div>
@@ -1171,14 +1055,36 @@
                     </div>
                 </div>
             </section>
+
+            <!-- SECCIÓN 8: ANEXO DE DESCARGAS -->
+            <section id="ex2-anexo">
+                <h2 class="section-title">Anexo: Descarga de <span>Recursos</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box" style="font-size: 1rem; line-height: 1.6;">
+                                Descargue los archivos oficiales de soporte correspondientes al <strong>Ejercicio 2</strong>. Cuenta con la solución completa en el libro Excel y el proyecto de datos en Minitab para contrastar los resultados.
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+                            <a href="excel/solucion.xlsx" download class="nav-btn active" style="text-decoration: none; justify-content: center; text-align: center;">
+                                <span>📥</span> Descargar Solución Excel (.xlsx)
+                            </a>
+                            <a href="minitab/proyecto.mpx" download class="nav-btn" style="text-decoration: none; justify-content: center; text-align: center; border-color: var(--border-color); background: rgba(124, 58, 237, 0.1); color: var(--text-secondary);">
+                                <span>📥</span> Descargar Proyecto Minitab (.mpx)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-
-
+        
+        
         <!-- ============================================== -->
         <!-- EJERCICIO 3 -->
         <!-- ============================================== -->
         <div class="exercise-pane" id="exercise-3">
-
+            
             <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
             <section id="ex3-enunciado">
                 <h2 class="section-title">Descripción del <span>problema</span></h2>
@@ -1186,14 +1092,11 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio
-                                    3</strong>. Explique las variables que se miden, los factores de perturbación
-                                controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 3</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
                             </div>
                             <div class="interpretation-card">
                                 <h3>Interpretación del Enunciado:</h3>
-                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de
-                                    la prueba.</p>
+                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
                             </div>
                             <div class="table-container">
                                 <table>
@@ -1237,12 +1140,9 @@
                             </div>
                         </div>
                         <div>
-                            <div class="evidence-container"
-                                onclick="openLightbox('img/image.png', 'Ejercicio 3 - Enunciado')">
-                                <img src="img/image.png" alt="Enunciado Ejercicio 3"
-                                    onerror="this.src='img/image.png';">
-                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span
-                                        class="zoom-text">Ampliar Enunciado</span></div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 3 - Enunciado')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 3" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
                             </div>
                         </div>
                     </div>
@@ -1256,8 +1156,7 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R,
-                                X̅-S, p, np, c, u)
+                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
                                 <br><br>
                                 <strong>Justificación Técnica de Selección:</strong>
                                 <br>
@@ -1269,17 +1168,12 @@
                             </div>
                         </div>
                         <div>
-                            <div class="interpretation-card"
-                                style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
+                            <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
                                 <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
                                 <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
-                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en
-                                    los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de
-                                    límites).
+                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
                                     <br><br>
-                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab:
-                                    porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio
-                                    son estables).
+                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
                                 </p>
                             </div>
                         </div>
@@ -1351,59 +1245,48 @@
                         <div class="control-chart-container">
                             <div class="control-chart-header">
                                 <div class="control-chart-title">
-                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) -
-                                    Plantilla Ejercicio 3
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 3
                                 </div>
                             </div>
                             <div class="interactive-svg-wrapper">
                                 <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
-                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1" />
-
-                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
                                     <!-- UCL: Y=50 -->
-                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444" />
-                                    <text x="522" y="53" fill="#ef4444" font-size="9"
-                                        font-family="Space Grotesk">UCL</text>
-
+                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    
                                     <!-- CL: Y=125 -->
-                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981" />
-                                    <text x="522" y="128" fill="#10b981" font-size="9"
-                                        font-family="Space Grotesk">CL</text>
-
+                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    
                                     <!-- LCL: Y=200 -->
-                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444" />
-                                    <text x="522" y="203" fill="#ef4444" font-size="9"
-                                        font-family="Space Grotesk">LCL</text>
+                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
 
-                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line"
-                                        stroke="#d8b4fe" />
-
-                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="1" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="2" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="3" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="4" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
+                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
                                 </svg>
                             </div>
                         </div>
@@ -1413,8 +1296,7 @@
                     <div>
                         <div class="chart-details-panel">
                             <h3 class="chart-details-title">Detalles de Auditoría (Ex3)</h3>
-                            <div class="info-placeholder"
-                                style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
                                 Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
                             </div>
                             <div class="info-content" style="display: none;">
@@ -1434,8 +1316,7 @@
                                     <span>Valores Observados:</span>
                                     <span class="info-obs" style="font-family: monospace;">-</span>
                                 </div>
-                                <div
-                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
                                     <div class="chart-details-row" style="flex-direction: column;">
                                         <span>Límite UCL:</span>
                                         <span class="info-ucl">-</span>
@@ -1466,21 +1347,16 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 3 - Excel')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 3 - Excel')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Fórmulas y Estructura en Excel</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por
-                                        ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de
-                                        control de forma dinámica en base a las constantes del subgrupo).
+                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
                                     </p>
                                 </div>
                             </div>
@@ -1500,21 +1376,16 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 3 Minitab')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 3 Minitab')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Diagnóstico e Informes del Proceso</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        Coloque aquí el reporte de estabilidad generado por el software especializado
-                                        Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la
-                                        carta de control.
+                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
                                     </p>
                                 </div>
                             </div>
@@ -1532,8 +1403,7 @@
                         <div>
                             <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 3)</strong>
                             <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
-                                Describa si el proceso se encuentra bajo control estadístico o si presenta
-                                inestabilidad.
+                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
                             </p>
                         </div>
                     </div>
@@ -1588,14 +1458,36 @@
                     </div>
                 </div>
             </section>
+
+            <!-- SECCIÓN 8: ANEXO DE DESCARGAS -->
+            <section id="ex3-anexo">
+                <h2 class="section-title">Anexo: Descarga de <span>Recursos</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box" style="font-size: 1rem; line-height: 1.6;">
+                                Descargue los archivos oficiales de soporte correspondientes al <strong>Ejercicio 3</strong>. Cuenta con la solución completa en el libro Excel y el proyecto de datos en Minitab para contrastar los resultados.
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+                            <a href="excel/solucion.xlsx" download class="nav-btn active" style="text-decoration: none; justify-content: center; text-align: center;">
+                                <span>📥</span> Descargar Solución Excel (.xlsx)
+                            </a>
+                            <a href="minitab/proyecto.mpx" download class="nav-btn" style="text-decoration: none; justify-content: center; text-align: center; border-color: var(--border-color); background: rgba(124, 58, 237, 0.1); color: var(--text-secondary);">
+                                <span>📥</span> Descargar Proyecto Minitab (.mpx)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-
-
+        
+        
         <!-- ============================================== -->
         <!-- EJERCICIO 4 -->
         <!-- ============================================== -->
         <div class="exercise-pane" id="exercise-4">
-
+            
             <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
             <section id="ex4-enunciado">
                 <h2 class="section-title">Descripción del <span>problema</span></h2>
@@ -1603,14 +1495,11 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio
-                                    4</strong>. Explique las variables que se miden, los factores de perturbación
-                                controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 4</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
                             </div>
                             <div class="interpretation-card">
                                 <h3>Interpretación del Enunciado:</h3>
-                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de
-                                    la prueba.</p>
+                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
                             </div>
                             <div class="table-container">
                                 <table>
@@ -1654,12 +1543,9 @@
                             </div>
                         </div>
                         <div>
-                            <div class="evidence-container"
-                                onclick="openLightbox('img/image.png', 'Ejercicio 4 - Enunciado')">
-                                <img src="img/image.png" alt="Enunciado Ejercicio 4"
-                                    onerror="this.src='img/image.png';">
-                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span
-                                        class="zoom-text">Ampliar Enunciado</span></div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 4 - Enunciado')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 4" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
                             </div>
                         </div>
                     </div>
@@ -1673,8 +1559,7 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R,
-                                X̅-S, p, np, c, u)
+                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
                                 <br><br>
                                 <strong>Justificación Técnica de Selección:</strong>
                                 <br>
@@ -1686,17 +1571,12 @@
                             </div>
                         </div>
                         <div>
-                            <div class="interpretation-card"
-                                style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
+                            <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
                                 <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
                                 <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
-                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en
-                                    los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de
-                                    límites).
+                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
                                     <br><br>
-                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab:
-                                    porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio
-                                    son estables).
+                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
                                 </p>
                             </div>
                         </div>
@@ -1768,59 +1648,48 @@
                         <div class="control-chart-container">
                             <div class="control-chart-header">
                                 <div class="control-chart-title">
-                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) -
-                                    Plantilla Ejercicio 4
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 4
                                 </div>
                             </div>
                             <div class="interactive-svg-wrapper">
                                 <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
-                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1" />
-
-                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
                                     <!-- UCL: Y=50 -->
-                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444" />
-                                    <text x="522" y="53" fill="#ef4444" font-size="9"
-                                        font-family="Space Grotesk">UCL</text>
-
+                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    
                                     <!-- CL: Y=125 -->
-                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981" />
-                                    <text x="522" y="128" fill="#10b981" font-size="9"
-                                        font-family="Space Grotesk">CL</text>
-
+                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    
                                     <!-- LCL: Y=200 -->
-                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444" />
-                                    <text x="522" y="203" fill="#ef4444" font-size="9"
-                                        font-family="Space Grotesk">LCL</text>
+                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
 
-                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line"
-                                        stroke="#d8b4fe" />
-
-                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="1" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="2" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="3" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="4" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
+                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
                                 </svg>
                             </div>
                         </div>
@@ -1830,8 +1699,7 @@
                     <div>
                         <div class="chart-details-panel">
                             <h3 class="chart-details-title">Detalles de Auditoría (Ex4)</h3>
-                            <div class="info-placeholder"
-                                style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
                                 Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
                             </div>
                             <div class="info-content" style="display: none;">
@@ -1851,8 +1719,7 @@
                                     <span>Valores Observados:</span>
                                     <span class="info-obs" style="font-family: monospace;">-</span>
                                 </div>
-                                <div
-                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
                                     <div class="chart-details-row" style="flex-direction: column;">
                                         <span>Límite UCL:</span>
                                         <span class="info-ucl">-</span>
@@ -1883,21 +1750,16 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 4 - Excel')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 4 - Excel')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Fórmulas y Estructura en Excel</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por
-                                        ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de
-                                        control de forma dinámica en base a las constantes del subgrupo).
+                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
                                     </p>
                                 </div>
                             </div>
@@ -1917,21 +1779,16 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 4 Minitab')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 4 Minitab')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Diagnóstico e Informes del Proceso</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        Coloque aquí el reporte de estabilidad generado por el software especializado
-                                        Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la
-                                        carta de control.
+                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
                                     </p>
                                 </div>
                             </div>
@@ -1949,8 +1806,7 @@
                         <div>
                             <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 4)</strong>
                             <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
-                                Describa si el proceso se encuentra bajo control estadístico o si presenta
-                                inestabilidad.
+                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
                             </p>
                         </div>
                     </div>
@@ -2005,14 +1861,36 @@
                     </div>
                 </div>
             </section>
+
+            <!-- SECCIÓN 8: ANEXO DE DESCARGAS -->
+            <section id="ex4-anexo">
+                <h2 class="section-title">Anexo: Descarga de <span>Recursos</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box" style="font-size: 1rem; line-height: 1.6;">
+                                Descargue los archivos oficiales de soporte correspondientes al <strong>Ejercicio 4</strong>. Cuenta con la solución completa en el libro Excel y el proyecto de datos en Minitab para contrastar los resultados.
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+                            <a href="excel/solucion.xlsx" download class="nav-btn active" style="text-decoration: none; justify-content: center; text-align: center;">
+                                <span>📥</span> Descargar Solución Excel (.xlsx)
+                            </a>
+                            <a href="minitab/proyecto.mpx" download class="nav-btn" style="text-decoration: none; justify-content: center; text-align: center; border-color: var(--border-color); background: rgba(124, 58, 237, 0.1); color: var(--text-secondary);">
+                                <span>📥</span> Descargar Proyecto Minitab (.mpx)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-
-
+        
+        
         <!-- ============================================== -->
         <!-- EJERCICIO 5 -->
         <!-- ============================================== -->
         <div class="exercise-pane" id="exercise-5">
-
+            
             <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
             <section id="ex5-enunciado">
                 <h2 class="section-title">Descripción del <span>problema</span></h2>
@@ -2020,14 +1898,11 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio
-                                    5</strong>. Explique las variables que se miden, los factores de perturbación
-                                controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 5</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
                             </div>
                             <div class="interpretation-card">
                                 <h3>Interpretación del Enunciado:</h3>
-                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de
-                                    la prueba.</p>
+                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
                             </div>
                             <div class="table-container">
                                 <table>
@@ -2071,12 +1946,9 @@
                             </div>
                         </div>
                         <div>
-                            <div class="evidence-container"
-                                onclick="openLightbox('img/image.png', 'Ejercicio 5 - Enunciado')">
-                                <img src="img/image.png" alt="Enunciado Ejercicio 5"
-                                    onerror="this.src='img/image.png';">
-                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span
-                                        class="zoom-text">Ampliar Enunciado</span></div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 5 - Enunciado')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 5" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
                             </div>
                         </div>
                     </div>
@@ -2090,8 +1962,7 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R,
-                                X̅-S, p, np, c, u)
+                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
                                 <br><br>
                                 <strong>Justificación Técnica de Selección:</strong>
                                 <br>
@@ -2103,17 +1974,12 @@
                             </div>
                         </div>
                         <div>
-                            <div class="interpretation-card"
-                                style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
+                            <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
                                 <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
                                 <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
-                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en
-                                    los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de
-                                    límites).
+                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
                                     <br><br>
-                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab:
-                                    porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio
-                                    son estables).
+                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
                                 </p>
                             </div>
                         </div>
@@ -2185,59 +2051,48 @@
                         <div class="control-chart-container">
                             <div class="control-chart-header">
                                 <div class="control-chart-title">
-                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) -
-                                    Plantilla Ejercicio 5
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 5
                                 </div>
                             </div>
                             <div class="interactive-svg-wrapper">
                                 <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
-                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1" />
-
-                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
                                     <!-- UCL: Y=50 -->
-                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444" />
-                                    <text x="522" y="53" fill="#ef4444" font-size="9"
-                                        font-family="Space Grotesk">UCL</text>
-
+                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    
                                     <!-- CL: Y=125 -->
-                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981" />
-                                    <text x="522" y="128" fill="#10b981" font-size="9"
-                                        font-family="Space Grotesk">CL</text>
-
+                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    
                                     <!-- LCL: Y=200 -->
-                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444" />
-                                    <text x="522" y="203" fill="#ef4444" font-size="9"
-                                        font-family="Space Grotesk">LCL</text>
+                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
 
-                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line"
-                                        stroke="#d8b4fe" />
-
-                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="1" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="2" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="3" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="4" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
+                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
                                 </svg>
                             </div>
                         </div>
@@ -2247,8 +2102,7 @@
                     <div>
                         <div class="chart-details-panel">
                             <h3 class="chart-details-title">Detalles de Auditoría (Ex5)</h3>
-                            <div class="info-placeholder"
-                                style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
                                 Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
                             </div>
                             <div class="info-content" style="display: none;">
@@ -2268,8 +2122,7 @@
                                     <span>Valores Observados:</span>
                                     <span class="info-obs" style="font-family: monospace;">-</span>
                                 </div>
-                                <div
-                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
                                     <div class="chart-details-row" style="flex-direction: column;">
                                         <span>Límite UCL:</span>
                                         <span class="info-ucl">-</span>
@@ -2300,21 +2153,16 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 5 - Excel')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 5 - Excel')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Fórmulas y Estructura en Excel</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por
-                                        ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de
-                                        control de forma dinámica en base a las constantes del subgrupo).
+                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
                                     </p>
                                 </div>
                             </div>
@@ -2334,21 +2182,16 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 5 Minitab')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 5 Minitab')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Diagnóstico e Informes del Proceso</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        Coloque aquí el reporte de estabilidad generado por el software especializado
-                                        Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la
-                                        carta de control.
+                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
                                     </p>
                                 </div>
                             </div>
@@ -2366,8 +2209,7 @@
                         <div>
                             <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 5)</strong>
                             <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
-                                Describa si el proceso se encuentra bajo control estadístico o si presenta
-                                inestabilidad.
+                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
                             </p>
                         </div>
                     </div>
@@ -2422,14 +2264,36 @@
                     </div>
                 </div>
             </section>
+
+            <!-- SECCIÓN 8: ANEXO DE DESCARGAS -->
+            <section id="ex5-anexo">
+                <h2 class="section-title">Anexo: Descarga de <span>Recursos</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box" style="font-size: 1rem; line-height: 1.6;">
+                                Descargue los archivos oficiales de soporte correspondientes al <strong>Ejercicio 5</strong>. Cuenta con la solución completa en el libro Excel y el proyecto de datos en Minitab para contrastar los resultados.
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+                            <a href="excel/solucion.xlsx" download class="nav-btn active" style="text-decoration: none; justify-content: center; text-align: center;">
+                                <span>📥</span> Descargar Solución Excel (.xlsx)
+                            </a>
+                            <a href="minitab/proyecto.mpx" download class="nav-btn" style="text-decoration: none; justify-content: center; text-align: center; border-color: var(--border-color); background: rgba(124, 58, 237, 0.1); color: var(--text-secondary);">
+                                <span>📥</span> Descargar Proyecto Minitab (.mpx)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-
-
+        
+        
         <!-- ============================================== -->
         <!-- EJERCICIO 6 -->
         <!-- ============================================== -->
         <div class="exercise-pane" id="exercise-6">
-
+            
             <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
             <section id="ex6-enunciado">
                 <h2 class="section-title">Descripción del <span>problema</span></h2>
@@ -2437,14 +2301,11 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio
-                                    6</strong>. Explique las variables que se miden, los factores de perturbación
-                                controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 6</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
                             </div>
                             <div class="interpretation-card">
                                 <h3>Interpretación del Enunciado:</h3>
-                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de
-                                    la prueba.</p>
+                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
                             </div>
                             <div class="table-container">
                                 <table>
@@ -2488,12 +2349,9 @@
                             </div>
                         </div>
                         <div>
-                            <div class="evidence-container"
-                                onclick="openLightbox('img/image.png', 'Ejercicio 6 - Enunciado')">
-                                <img src="img/image.png" alt="Enunciado Ejercicio 6"
-                                    onerror="this.src='img/image.png';">
-                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span
-                                        class="zoom-text">Ampliar Enunciado</span></div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 6 - Enunciado')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 6" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
                             </div>
                         </div>
                     </div>
@@ -2507,8 +2365,7 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R,
-                                X̅-S, p, np, c, u)
+                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
                                 <br><br>
                                 <strong>Justificación Técnica de Selección:</strong>
                                 <br>
@@ -2520,17 +2377,12 @@
                             </div>
                         </div>
                         <div>
-                            <div class="interpretation-card"
-                                style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
+                            <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
                                 <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
                                 <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
-                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en
-                                    los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de
-                                    límites).
+                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
                                     <br><br>
-                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab:
-                                    porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio
-                                    son estables).
+                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
                                 </p>
                             </div>
                         </div>
@@ -2602,59 +2454,48 @@
                         <div class="control-chart-container">
                             <div class="control-chart-header">
                                 <div class="control-chart-title">
-                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) -
-                                    Plantilla Ejercicio 6
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 6
                                 </div>
                             </div>
                             <div class="interactive-svg-wrapper">
                                 <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
-                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1" />
-                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1" />
-
-                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5"
-                                        opacity="0.5" />
-
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
                                     <!-- UCL: Y=50 -->
-                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444" />
-                                    <text x="522" y="53" fill="#ef4444" font-size="9"
-                                        font-family="Space Grotesk">UCL</text>
-
+                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    
                                     <!-- CL: Y=125 -->
-                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981" />
-                                    <text x="522" y="128" fill="#10b981" font-size="9"
-                                        font-family="Space Grotesk">CL</text>
-
+                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    
                                     <!-- LCL: Y=200 -->
-                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444" />
-                                    <text x="522" y="203" fill="#ef4444" font-size="9"
-                                        font-family="Space Grotesk">LCL</text>
+                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
 
-                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line"
-                                        stroke="#d8b4fe" />
-
-                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="1" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="2" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="3" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
-                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff"
-                                        stroke-width="1.5" data-sg="4" data-type="xbar" data-val="0.00"
-                                        data-status="Dentro de Control" data-lcl="0.00" data-ucl="0.00" data-cl="0.00"
-                                        data-obs="0, 0, 0, 0, 0" onmouseover="showChartPointInfo(this)"
-                                        onmouseout="clearChartPointInfo()" />
+                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
                                 </svg>
                             </div>
                         </div>
@@ -2664,8 +2505,7 @@
                     <div>
                         <div class="chart-details-panel">
                             <h3 class="chart-details-title">Detalles de Auditoría (Ex6)</h3>
-                            <div class="info-placeholder"
-                                style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
                                 Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
                             </div>
                             <div class="info-content" style="display: none;">
@@ -2685,8 +2525,7 @@
                                     <span>Valores Observados:</span>
                                     <span class="info-obs" style="font-family: monospace;">-</span>
                                 </div>
-                                <div
-                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
                                     <div class="chart-details-row" style="flex-direction: column;">
                                         <span>Límite UCL:</span>
                                         <span class="info-ucl">-</span>
@@ -2717,21 +2556,16 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 6 - Excel')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 6 - Excel')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Fórmulas y Estructura en Excel</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por
-                                        ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de
-                                        control de forma dinámica en base a las constantes del subgrupo).
+                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
                                     </p>
                                 </div>
                             </div>
@@ -2751,21 +2585,16 @@
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container"
-                                    onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 6 Minitab')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab"
-                                        onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 6 Minitab')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
-                                <div class="interpretation-card"
-                                    style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
                                     <h3>Diagnóstico e Informes del Proceso</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        Coloque aquí el reporte de estabilidad generado por el software especializado
-                                        Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la
-                                        carta de control.
+                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
                                     </p>
                                 </div>
                             </div>
@@ -2783,8 +2612,7 @@
                         <div>
                             <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 6)</strong>
                             <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
-                                Describa si el proceso se encuentra bajo control estadístico o si presenta
-                                inestabilidad.
+                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
                             </p>
                         </div>
                     </div>
@@ -2839,8 +2667,30 @@
                     </div>
                 </div>
             </section>
-        </div>
 
+            <!-- SECCIÓN 8: ANEXO DE DESCARGAS -->
+            <section id="ex6-anexo">
+                <h2 class="section-title">Anexo: Descarga de <span>Recursos</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box" style="font-size: 1rem; line-height: 1.6;">
+                                Descargue los archivos oficiales de soporte correspondientes al <strong>Ejercicio 6</strong>. Cuenta con la solución completa en el libro Excel y el proyecto de datos en Minitab para contrastar los resultados.
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 12px; justify-content: center;">
+                            <a href="excel/solucion.xlsx" download class="nav-btn active" style="text-decoration: none; justify-content: center; text-align: center;">
+                                <span>📥</span> Descargar Solución Excel (.xlsx)
+                            </a>
+                            <a href="minitab/proyecto.mpx" download class="nav-btn" style="text-decoration: none; justify-content: center; text-align: center; border-color: var(--border-color); background: rgba(124, 58, 237, 0.1); color: var(--text-secondary);">
+                                <span>📥</span> Descargar Proyecto Minitab (.mpx)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
 
     </div>
 
@@ -2862,7 +2712,7 @@
         // Switch Exercise Active Pane
         function switchExercise(exNum) {
             currentExercise = exNum;
-
+            
             // Scroll smoothly to navigation bar
             document.querySelector('.nav-exercises').scrollIntoView({ behavior: 'smooth' });
 
@@ -2894,14 +2744,14 @@
         // Tab Switching for Minitab / Excel Solutions
         function switchSoftwareTab(button, tabId) {
             const card = button.closest('.software-card');
-
+            
             // Deactivate other tabs
             card.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
             // Deactivate other panels
             card.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
-
+            
             // Activate selected pane
             card.querySelector(`#${tabId}`).classList.add('active');
         }
@@ -2953,10 +2803,10 @@
             // Find elements relative to the point's chart grid container
             const grid = point.closest('.chart-split-grid');
             if (!grid) return;
-
+            
             const placeholder = grid.querySelector('.info-placeholder');
             const content = grid.querySelector('.info-content');
-
+            
             if (placeholder) placeholder.style.display = 'none';
             if (content) content.style.display = 'block';
 
@@ -3002,11 +2852,16 @@
             });
         }
 
-        // Highlight point in chart and scroll
+        // Highlight point in chart and scroll (generic to active exercise tab)
         function highlightSvgPoint(sgNum) {
-            const point = document.querySelector(`.svg-point[data-sg="${sgNum}"][data-type="xbar"]`);
+            const activePane = document.querySelector('.exercise-pane.active');
+            if (!activePane) return;
+            const point = activePane.querySelector(`.svg-point[data-sg="${sgNum}"][data-type="xbar"]`);
             if (point) {
-                document.getElementById('ex1-excel-svg').scrollIntoView({ behavior: 'smooth' });
+                const excelSection = activePane.querySelector('[id$="-excel-svg"]');
+                if (excelSection) {
+                    excelSection.scrollIntoView({ behavior: 'smooth' });
+                }
                 showChartPointInfo(point);
             }
         }

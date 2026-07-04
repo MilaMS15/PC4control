@@ -1027,12 +1027,85 @@
 
         /* RESPONSIVE STYLES */
         @media (max-width: 768px) {
-            body { padding-bottom: 40px; }
-            .container { padding: 15px 16px; }
-            .card { padding: 20px; border-radius: 12px; }
-            .section-title { font-size: 1.5rem; }
-            header h1 { font-size: 2rem; }
-            header p { font-size: 1rem; }
-            th, td { padding: 10px 12px; font-size: 0.85rem; }
+            body { padding-bottom: 30px; }
+            .container { padding: 12px 14px; }
+            .card { padding: 18px; border-radius: 12px; margin-bottom: 20px; }
+            .section-title { font-size: 1.4rem; padding-left: 10px; margin-bottom: 18px; }
+            
+            header { padding: 30px 15px; }
+            header h1 { font-size: 1.7rem; }
+            header p { font-size: 0.95rem; }
+            .author-badge { position: relative; top: auto; right: auto; margin: 0 auto 15px auto; display: inline-block; padding: 5px 12px; }
+            
+            /* Sleek horizontal swipable navigation bar for mobile */
+            .nav-exercises { padding: 8px 0; }
+            .nav-container {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 2px 15px;
+                gap: 8px;
+                scrollbar-width: none; /* Hide for Firefox */
+                -ms-overflow-style: none; /* Hide for IE/Edge */
+            }
+            .nav-container::-webkit-scrollbar {
+                display: none; /* Hide for Chrome/Safari */
+            }
+            .nav-btn {
+                flex-shrink: 0;
+                padding: 8px 14px;
+                font-size: 0.85rem;
+                border-radius: 20px;
+            }
+            
+            th, td { padding: 10px 12px; font-size: 0.82rem; }
             .modal-content { max-width: 95%; max-height: 70vh; }
+            
+            /* Software cards stacking in columns */
+            .anovas-grid { grid-template-columns: 1fr; gap: 20px; }
+            .comparativo-list { grid-template-columns: 1fr; }
+            .conclusiones-grid { grid-template-columns: 1fr; gap: 20px; }
+            
+            /* SVG points touch optimization */
+            .svg-point {
+                r: 7px; /* Make points slightly larger on mobile for touch accuracy */
+            }
+            .svg-point:hover {
+                r: 9px;
+            }
+            
+            /* Scrollbar styling for table container to invite dragging */
+            .table-container::-webkit-scrollbar {
+                height: 5px;
+            }
+            .table-container::-webkit-scrollbar-thumb {
+                background-color: var(--border-color);
+                border-radius: 3px;
+            }
+        }
+
+        /* GITHUB REPOSITORY LINK BUTTON */
+        .repo-link-container {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .repo-btn {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(24, 23, 23, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 8px 16px;
+            font-family: var(--font-title);
+            font-size: 0.88rem;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all var(--transition-speed) ease;
+        }
+        .repo-btn:hover {
+            background: #181717;
+            border-color: var(--highlight);
+            box-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
+            transform: translateY(-1px);
         }
