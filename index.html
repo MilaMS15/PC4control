@@ -12,36 +12,111 @@
 </head>
  
 
-<body>
+<body class="in-dashboard sidebar-collapsed">
 
     <!-- SCROLL PROGRESS BAR -->
     <div id="scroll-progress"></div>
 
-    <!-- MAIN HEADER (Portada en solo el frontend) -->
-    <header>
-        <div class="author-badge">
-            Análisis Estadístico Desarrollado por <strong>Milagros Lidia Mayta Soto</strong>
-        </div>
-        <div class="header-content">
-            <span class="header-tag">Control Estadístico de Procesos</span>
-            <h1>Dashboard de Control de Procesos</h1>
-            <p>Guía Práctica e Interpretación de Evidencias (Minitab & Excel)</p>
-        </div>
-    </header>
+    <!-- DASHBOARD VIEW -->
+    <div id="dashboard-view">
+        <!-- MAIN HEADER (Inside Dashboard) -->
+        <header>
+            <div class="author-badge">
+                Análisis Estadístico Desarrollado por <strong>Milagros Lidia Mayta Soto</strong>
+            </div>
+            <div class="header-content">
+                <span class="header-tag">Control Estadístico de Procesos</span>
+                <h1>Dashboard de Control de Procesos</h1>
+                <p>Guía Práctica e Interpretación de Evidencias (Minitab & Excel)</p>
+            </div>
+        </header>
 
-    <!-- GLASSMORPHIC NAVIGATION BAR (6 Exercises) -->
-    <nav class="nav-exercises">
-        <!-- Botón del Repositorio de GitHub arriba de los ejercicios -->
-        <div class="repo-link-container">
-            <a href="https://github.com/MilaMS15/PC4control" target="_blank" class="repo-btn">
-                <svg class="github-icon" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 6px;">
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
-                </svg>
-                Ver Código en GitHub (Repositorio)
-            </a>
+        <!-- DASHBOARD GRID -->
+        <div class="dashboard-grid">
+            <!-- Card 1 -->
+            <div class="dashboard-card" onclick="switchExercise(1)">
+                <div class="dashboard-card-badges">
+                    <span class="dashboard-card-badge">Guía Oficial</span>
+                    <span class="dashboard-card-badge">Carta X̅-R</span>
+                </div>
+                <div class="dashboard-card-icon">📂</div>
+                <h3 class="dashboard-card-title">Ejercicio 1 (Guía)</h3>
+                <p class="dashboard-card-desc">Amazon Robotics: Control del peso de sensores de navegación. Análisis detallado de estabilidad y derivas mediante cartas X̅-R con subgrupos de n = 5.</p>
+                <button class="dashboard-card-btn">Ver Ejercicio ➔</button>
+            </div>
+            <!-- Card 2 -->
+            <div class="dashboard-card" onclick="switchExercise(2)">
+                <div class="dashboard-card-badges">
+                    <span class="dashboard-card-badge">Excel</span>
+                    <span class="dashboard-card-badge">Minitab</span>
+                </div>
+                <div class="dashboard-card-icon">📝</div>
+                <h3 class="dashboard-card-title">Ejercicio 2</h3>
+                <p class="dashboard-card-desc">Evaluación estadística de estabilidad. Desarrollo analítico de límites y diagnóstico del proceso utilizando herramientas avanzadas de Minitab y Excel.</p>
+                <button class="dashboard-card-btn">Ver Ejercicio ➔</button>
+            </div>
+            <!-- Card 3 -->
+            <div class="dashboard-card" onclick="switchExercise(3)">
+                <div class="dashboard-card-badges">
+                    <span class="dashboard-card-badge">Excel</span>
+                    <span class="dashboard-card-badge">Minitab</span>
+                </div>
+                <div class="dashboard-card-icon">📝</div>
+                <h3 class="dashboard-card-title">Ejercicio 3</h3>
+                <p class="dashboard-card-desc">Diagnóstico y control estadístico. Interpretación de evidencias, cálculo de límites interactivos y análisis de estabilidad del proceso.</p>
+                <button class="dashboard-card-btn">Ver Ejercicio ➔</button>
+            </div>
+            <!-- Card 4 -->
+            <div class="dashboard-card" onclick="switchExercise(4)">
+                <div class="dashboard-card-badges">
+                    <span class="dashboard-card-badge">Excel</span>
+                    <span class="dashboard-card-badge">Minitab</span>
+                </div>
+                <div class="dashboard-card-icon">📝</div>
+                <h3 class="dashboard-card-title">Ejercicio 4</h3>
+                <p class="dashboard-card-desc">Análisis de capacidad y cartas de control. Contrastación de datos analíticos con reportes automáticos y resolución en Excel.</p>
+                <button class="dashboard-card-btn">Ver Ejercicio ➔</button>
+            </div>
+            <!-- Card 5 -->
+            <div class="dashboard-card" onclick="switchExercise(5)">
+                <div class="dashboard-card-badges">
+                    <span class="dashboard-card-badge">Excel</span>
+                    <span class="dashboard-card-badge">Minitab</span>
+                </div>
+                <div class="dashboard-card-icon">📝</div>
+                <h3 class="dashboard-card-title">Ejercicio 5</h3>
+                <p class="dashboard-card-desc">Evaluación del proceso y auditoría de subgrupos. Formulación de conclusiones estadísticas clave y plan de acción en planta.</p>
+                <button class="dashboard-card-btn">Ver Ejercicio ➔</button>
+            </div>
+            <!-- Card 6 -->
+            <div class="dashboard-card" onclick="switchExercise(6)">
+                <div class="dashboard-card-badges">
+                    <span class="dashboard-card-badge">Excel</span>
+                    <span class="dashboard-card-badge">Minitab</span>
+                </div>
+                <div class="dashboard-card-icon">📝</div>
+                <h3 class="dashboard-card-title">Ejercicio 6</h3>
+                <p class="dashboard-card-desc">Estudio completo de estabilidad del proceso. Gráficos de control interactivos, reporte diagnóstico e interpretación de concordancias.</p>
+                <button class="dashboard-card-btn">Ver Ejercicio ➔</button>
+            </div>
         </div>
-        <div class="nav-container">
-            <button class="nav-btn active" onclick="switchExercise(1)">
+    </div>
+
+    <!-- COLLAPSIBLE VERTICAL SIDEBAR NAVIGATION -->
+    <nav class="sidebar-navigation">
+        <!-- Sidebar Brand / Logo -->
+        <div class="sidebar-brand">
+            <span>📊</span> SPC Control
+        </div>
+        
+        <!-- Back to Dashboard Button -->
+        <button class="btn-back-dashboard" onclick="switchExercise(0)">
+            <span>🏠</span> Volver al Dashboard
+        </button>
+        
+        <!-- Sidebar Menu (Exercise Buttons) -->
+        <div class="sidebar-menu">
+            <button class="nav-btn" onclick="switchExercise(1)">
                 <span>📂</span> Ejercicio 1 (Guía)
             </button>
             <button class="nav-btn" onclick="switchExercise(2)">
@@ -60,7 +135,27 @@
                 <span>📝</span> Ejercicio 6
             </button>
         </div>
+        
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <div class="author-credit" style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.4; margin-bottom: 12px; font-family: var(--font-title);">
+                Desarrollado por:<br>
+                <strong style="color: #ffffff;">Milagros L. Mayta Soto</strong>
+            </div>
+            <a href="https://github.com/MilaMS15/PC4control" target="_blank" class="repo-btn" style="text-decoration: none;">
+                <svg class="github-icon" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 6px;">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+                Ver en GitHub
+            </a>
+        </div>
     </nav>
+
+    <!-- FLOATING SIDEBAR TOGGLE BUTTON -->
+    <button class="sidebar-toggle-btn" id="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle Navigation Sidebar">
+        <span class="icon-open">☰</span>
+        <span class="icon-close">✕</span>
+    </button>
 
     <div class="container">
 
@@ -2708,38 +2803,86 @@ Rango LCL: =0.000 * H10
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        let currentExercise = 1;
+        let currentExercise = 0; // 0 means Dashboard
+
+        // Initial setup on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            switchExercise(0);
+        });
 
         // Switch Exercise Active Pane
         function switchExercise(exNum) {
             currentExercise = exNum;
-            
-            // Scroll smoothly to navigation bar
-            document.querySelector('.nav-exercises').scrollIntoView({ behavior: 'smooth' });
+            const body = document.body;
 
-            // Toggle nav button active class
-            document.querySelectorAll('.nav-btn').forEach((btn, idx) => {
-                if (idx + 1 === exNum) {
-                    btn.classList.add('active');
-                } else {
+            if (exNum === 0) {
+                // Show dashboard, hide sidebar and exercise views
+                body.classList.remove('in-exercise');
+                body.classList.add('in-dashboard');
+
+                // Hide all exercise panes
+                document.querySelectorAll('.exercise-pane').forEach(pane => {
+                    pane.classList.remove('active');
+                    pane.style.display = 'none';
+                });
+
+                // Show dashboard view
+                const dbView = document.getElementById('dashboard-view');
+                if (dbView) dbView.style.display = 'block';
+
+                // Deactivate all sidebar nav buttons
+                document.querySelectorAll('.sidebar-menu .nav-btn').forEach(btn => {
                     btn.classList.remove('active');
+                });
+
+                // Scroll smoothly to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                // Hide dashboard, show sidebar and exercise view
+                body.classList.remove('in-dashboard');
+                body.classList.add('in-exercise');
+
+                // Hide dashboard view
+                const dbView = document.getElementById('dashboard-view');
+                if (dbView) dbView.style.display = 'none';
+
+                // Toggle nav button active class in sidebar
+                document.querySelectorAll('.sidebar-menu .nav-btn').forEach((btn, idx) => {
+                    if (idx + 1 === exNum) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                // Toggle panes
+                const panes = document.querySelectorAll('.exercise-pane');
+                panes.forEach(pane => {
+                    pane.classList.remove('active');
+                    pane.style.display = 'none';
+                });
+
+                const targetPane = document.getElementById(`exercise-${exNum}`);
+                if (targetPane) {
+                    targetPane.style.display = 'block';
+                    // Trigger reflow for CSS animation transition
+                    targetPane.offsetHeight;
+                    targetPane.classList.add('active');
                 }
-            });
 
-            // Toggle panes
-            const panes = document.querySelectorAll('.exercise-pane');
-            panes.forEach(pane => {
-                pane.classList.remove('active');
-                pane.style.display = 'none';
-            });
+                // Scroll smoothly to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            const targetPane = document.getElementById(`exercise-${exNum}`);
-            if (targetPane) {
-                targetPane.style.display = 'block';
-                // Trigger reflow for CSS animation transition
-                targetPane.offsetHeight;
-                targetPane.classList.add('active');
+                // On mobile/tablet, auto collapse sidebar after selection
+                if (window.innerWidth < 992) {
+                    body.classList.add('sidebar-collapsed');
+                }
             }
+        }
+
+        // Toggle Sidebar collapsed state
+        function toggleSidebar() {
+            document.body.classList.toggle('sidebar-collapsed');
         }
 
         // Tab Switching for Minitab / Excel Solutions
