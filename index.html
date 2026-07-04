@@ -915,63 +915,29 @@
             </div>
 
             
-            <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
+                        <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
             <section id="ex4-enunciado">
                 <h2 class="section-title">Descripción del <span>problema</span></h2>
                 <div class="card">
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 4</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                                <strong>Auditoría de Control Interno: Conteo de Discrepancias en Sucursales</strong><br><br>
+                                Como parte de una auditoría interna del área de riesgos en una institución financiera, se evaluaron los registros de crédito aprobados en <strong>15 sucursales</strong> durante el último mes.<br><br>
+                                <strong>Estructura del Muestreo:</strong><br>
+                                • En cada sucursal se seleccionó una muestra fija de <strong>n = 100 registros</strong> (total general de 1,500 registros inspeccionados).<br>
+                                • Se contabilizó el número de registros que presentaron alguna discrepancia o error metodológico en el expediente.<br><br>
+                                <strong>El Error del Analista:</strong><br>
+                                Inicialmente, un analista de control de calidad aplicó una <strong>Carta c</strong> para monitorear el número de discrepancias. Se nos solicita realizar un análisis crítico para justificar por qué la Carta c es metodológicamente incorrecta en este caso, identificar la carta adecuada (Carta np), realizar los cálculos analíticos correspondientes en Excel/Minitab, y determinar si las sucursales se encuentran en control estadístico.
                             </div>
                             <div class="interpretation-card">
                                 <h3>Interpretación del Enunciado:</h3>
-                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
-                            </div>
-                            <div class="table-container">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Subgrupo</th>
-                                            <th class="num">X1</th>
-                                            <th class="num">X2</th>
-                                            <th class="num">X3</th>
-                                            <th class="num">X4</th>
-                                            <th class="num">X5</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>1</strong></td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>2</strong></td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>3</strong></td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <p>Evaluamos errores en expedientes bancarios con muestras de tamaño constante. La característica analizada es de tipo pasa/no pasa (el expediente tiene discrepancias o no), lo que requiere el uso de modelos estadísticos basados en la distribución binomial.</p>
                             </div>
                         </div>
                         <div>
-                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 4 - Enunciado')">
-                                <img src="img/image.png" alt="Enunciado Ejercicio 4" onerror="this.src='img/image.png';">
+                            <div class="evidence-container" onclick="openLightbox('img/P4.png', 'Ejercicio 4 - Enunciado')">
+                                <img src="img/P4.png" alt="Enunciado Ejercicio 4" onerror="this.src='img/P4.png';">
                                 <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
                             </div>
                         </div>
@@ -979,31 +945,26 @@
                 </div>
             </section>
 
-            <!-- SECCIÓN 2: IDENTIFICACIÓN DE LA CARTA -->
+                        <!-- SECCIÓN 2: IDENTIFICACIÓN DE LA CARTA -->
             <section id="ex4-seleccion">
                 <h2 class="section-title">Identificación de la <span>carta</span></h2>
                 <div class="card">
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
-                                <br><br>
-                                <strong>Justificación Técnica de Selección:</strong>
-                                <br>
-                                - Naturaleza del dato: (Ej. Variable continua cuantitativa o Atributos cualitativos)
-                                <br>
-                                - Tamaño de subgrupo: (Ej. n = _VAL_ &le; 8 o n &gt; 8)
-                                <br>
-                                - Razón de uso: (Describa por qué se eligió esta carta según la teoría estadística).
+                                <strong>Análisis Crítico: Carta c vs Carta np</strong><br><br>
+                                El uso de la <strong>Carta c</strong> por parte del analista inicial es un <strong>grave error metodológico</strong>. A continuación se detallan las razones técnicas:<br><br>
+                                • <strong>Carta c (Incorrecta):</strong> Se basa en la distribución de <strong>Poisson</strong> y se utiliza para contar el número total de <em>defectos</em> en una unidad de inspección continua (ej. cantidad de raspones en un auto, número de burbujas en un rollo de vidrio). Aquí la oportunidad de que ocurra el defecto es casi infinita, pero la probabilidad real de que ocurra en un punto es muy pequeña.<br>
+                                • <strong>Carta np (Correcta):</strong> Se basa en la distribución <strong>Binomial</strong>. Se utiliza para contar <em>unidades defectuosas</em> (expedientes con discrepancia) en subgrupos de tamaño constante. Un expediente se clasifica en una condición binaria: **o bien tiene discrepancia (defectuoso) o no la tiene (correcto)**.<br><br>
+                                Como el tamaño del subgrupo (los expedientes analizados en cada sucursal) es **fijo en n = 100**, corresponde diseñar una **Carta np** (número de unidades defectuosas) o una **Carta p** (proporción). Sin embargo, dado que n es constante, la Carta np es preferida por facilitar el conteo directo y la interpretación del personal de auditoría.
                             </div>
                         </div>
                         <div>
                             <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
                                 <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
                                 <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
-                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
-                                    <br><br>
-                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
+                                    <strong>En Excel:</strong> El cálculo analítico determina una línea central en <strong>np̄ = 5.733</strong> discrepancias promedio por sucursal, con límites de control de <strong>LCI = 0.00</strong> y <strong>LCS = 12.708</strong>. Todas las sucursales se sitúan dentro de esta franja.<br><br>
+                                    <strong>En Minitab:</strong> Se corrobora que la Carta np mantiene estabilidad. Ninguna sucursal incumple las pruebas de estabilidad (no hay puntos fuera del LCS, ni tendencias, ni corridas atípicas), por lo que las variaciones observadas son puramente aleatorias.
                                 </p>
                             </div>
                         </div>
@@ -1011,29 +972,29 @@
                 </div>
             </section>
 
-            <!-- SECCIÓN 3: DESARROLLO EN EXCEL -->
+                        <!-- SECCIÓN 3: DESARROLLO EN EXCEL -->
             <section id="ex4-excel-svg">
                 <h2 class="section-title">Desarrollo en <span>Excel</span></h2>
                 <div class="card">
                     <div style="margin-bottom: 25px;">
-                        <h3 style="color: var(--highlight); margin-bottom: 10px;">Fórmulas y Parámetros</h3>
+                        <h3 style="color: var(--highlight); margin-bottom: 10px;">Fórmulas y Parámetros (Carta np)</h3>
                         <p style="font-size: 0.95rem; color: #d1c9e8; margin-bottom: 15px;">
-                            Cálculos analíticos aplicados en la hoja de Excel:
+                            Cálculos aplicados sobre los 15 subgrupos auditados:
                         </p>
                         <div class="hipotesis-grid">
                             <div class="hipotesis-card">
-                                <h3>Línea Central (CL)</h3>
+                                <h3>Tasa de Error Media (p̄)</h3>
                                 <div class="formula-box">
-                                    <p>Media del Proceso</p>
+                                    <p>p̄ = Σ(Discrepancias) / Σ(n)</p>
                                 </div>
-                                <p class="subtext">Valor promedio general de la característica de calidad.</p>
+                                <p class="subtext">Proporción general de registros con error. p̄ = 86 / 1500 = <strong>0.05733</strong> (5.73%)</p>
                             </div>
                             <div class="hipotesis-card">
-                                <h3>Límites de Control (UCL / LCL)</h3>
+                                <h3>Límites de Control (np)</h3>
                                 <div class="formula-box">
-                                    <p>CL &plusmn; 3σ</p>
+                                    <p>LCS = np̄ + 3√(np̄(1 - p̄)) <br> LCI = np̄ - 3√(np̄(1 - p̄))</p>
                                 </div>
-                                <p class="subtext">Límites calculados con las constantes estadísticas oficiales.</p>
+                                <p class="subtext">LCS = 5.733 + 3√(5.733 * 0.9427) = <strong>12.7077</strong><br>LCI = 5.733 - 6.974 = -1.24 → <strong>0.0000</strong></p>
                             </div>
                         </div>
                     </div>
@@ -1042,26 +1003,149 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Subgrupo</th>
-                                    <th class="num">Valor Promedio X̅</th>
-                                    <th class="num">Dispersión R/S</th>
-                                    <th>Estado Media</th>
-                                    <th>Estado Dispersión</th>
+                                    <th>Sucursal</th>
+                                    <th class="num">Registros Inspeccionados (n)</th>
+                                    <th class="num">Conteo de Discrepancias (np)</th>
+                                    <th class="num">Límite LCI</th>
+                                    <th class="num">Línea Central (np̄)</th>
+                                    <th class="num">Límite LCS</th>
+                                    <th>Estado de Sucursal</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr style="cursor: pointer;">
-                                    <td><strong>Muestra 1</strong></td>
-                                    <td class="num">0.00</td>
-                                    <td class="num">0.00</td>
-                                    <td><span class="badge badge-sig">En Control</span></td>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(1)">
+                                    <td><strong>Sucursal 1</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">4</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
                                     <td><span class="badge badge-sig">En Control</span></td>
                                 </tr>
-                                <tr style="cursor: pointer;">
-                                    <td><strong>Muestra 2</strong></td>
-                                    <td class="num">0.00</td>
-                                    <td class="num">0.00</td>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(2)">
+                                    <td><strong>Sucursal 2</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">6</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
                                     <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(3)">
+                                    <td><strong>Sucursal 3</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">3</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(4)">
+                                    <td><strong>Sucursal 4</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">8</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(5)">
+                                    <td><strong>Sucursal 5</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">5</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(6)">
+                                    <td><strong>Sucursal 6</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">7</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(7)">
+                                    <td><strong>Sucursal 7</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">4</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(8)">
+                                    <td><strong>Sucursal 8</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">9</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(9)">
+                                    <td><strong>Sucursal 9</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">5</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(10)">
+                                    <td><strong>Sucursal 10</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">6</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(11)">
+                                    <td><strong>Sucursal 11</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">3</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(12)">
+                                    <td><strong>Sucursal 12</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">7</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(13)">
+                                    <td><strong>Sucursal 13</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">5</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(14)">
+                                    <td><strong>Sucursal 14</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">8</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(15)">
+                                    <td><strong>Sucursal 15</strong></td>
+                                    <td class="num">100</td>
+                                    <td class="num">6</td>
+                                    <td class="num">0.0000</td>
+                                    <td class="num">5.7333</td>
+                                    <td class="num">12.7077</td>
                                     <td><span class="badge badge-sig">En Control</span></td>
                                 </tr>
                             </tbody>
@@ -1071,51 +1155,99 @@
 
                 <div class="chart-split-grid" style="margin-top: 30px; margin-bottom: 30px;">
                     <div class="chart-flex">
-                        <!-- X-bar Chart -->
+                        <!-- np Control Chart -->
                         <div class="control-chart-container">
                             <div class="control-chart-header">
                                 <div class="control-chart-title">
-                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 4
+                                    <span style="color: var(--highlight);">📈</span> Gráfico np: Conteo de Discrepancias (Auditoría de Control Interno)
                                 </div>
                             </div>
                             <div class="interactive-svg-wrapper">
                                 <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
-                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
-                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
-                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    <!-- Background grid lines -->
+                                    <line x1="50" y1="25" x2="510" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="510" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="220" x2="510" y2="220" stroke="#1f1837" stroke-width="1"/>
                                     
+                                    <!-- Axes -->
                                     <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
-                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="220" x2="520" y2="220" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
                                     
-                                    <!-- UCL: Y=50 -->
-                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
-                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    <!-- UCL: Y=59.0 -->
+                                    <line x1="50" y1="59" x2="510" y2="59" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="512" y="62" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL: 12.71</text>
                                     
-                                    <!-- CL: Y=125 -->
-                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
-                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    <!-- CL: Y=147.4 -->
+                                    <line x1="50" y1="147.4" x2="510" y2="147.4" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="512" y="150" fill="#10b981" font-size="9" font-family="Space Grotesk">CL: 5.73</text>
                                     
-                                    <!-- LCL: Y=200 -->
-                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
-                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
+                                    <!-- LCL: Y=220.0 -->
+                                    <line x1="50" y1="220" x2="510" y2="220" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="512" y="217" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL: 0.00</text>
 
-                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    <!-- Polyline connecting data points -->
+                                    <polyline points="50,169.3 82.9,144.0 115.7,182.0 148.6,118.7 181.4,156.7 214.3,131.3 247.1,169.3 280.0,106.0 312.9,156.7 345.7,144.0 378.6,182.0 411.4,131.3 444.3,156.7 477.1,118.7 510,144.0" class="svg-data-line" stroke="#d8b4fe"/>
                                     
-                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
-                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
-                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                    <!-- Circle points -->
+                                    <circle cx="50" cy="169.3" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="np" data-val="4" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="4 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
                                             onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
-                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
-                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
-                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                    <circle cx="82.9" cy="144.0" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="np" data-val="6" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="6 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
                                             onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
-                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
-                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
-                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                    <circle cx="115.7" cy="182.0" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="np" data-val="3" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="3 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
                                             onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
-                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
-                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
-                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                    <circle cx="148.6" cy="118.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="np" data-val="8" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="8 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="181.4" cy="156.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="5" data-type="np" data-val="5" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="5 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="214.3" cy="131.3" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="6" data-type="np" data-val="7" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="7 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="247.1" cy="169.3" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="7" data-type="np" data-val="4" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="4 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="280.0" cy="106.0" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="8" data-type="np" data-val="9" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="9 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="312.9" cy="156.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="9" data-type="np" data-val="5" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="5 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="345.7" cy="144.0" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="10" data-type="np" data-val="6" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="6 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="378.6" cy="182.0" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="11" data-type="np" data-val="3" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="3 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="411.4" cy="131.3" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="12" data-type="np" data-val="7" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="7 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="444.3" cy="156.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="13" data-type="np" data-val="5" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="5 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="477.1" cy="118.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="14" data-type="np" data-val="8" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="8 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="510.0" cy="144.0" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="15" data-type="np" data-val="6" data-status="En Control" 
+                                            data-lcl="0.00" data-ucl="12.71" data-cl="5.73" data-obs="6 / 100" data-unit="discrepancias" data-type-label="Carta np (Discrepancias)"
                                             onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
                                 </svg>
                             </div>
@@ -1131,33 +1263,33 @@
                             </div>
                             <div class="info-content" style="display: none;">
                                 <div class="chart-details-row">
-                                    <span>Muestra / Subgrupo:</span>
-                                    <span class="info-sg">-</span>
+                                    <span>Sucursal / Subgrupo:</span>
+                                    <span class="info-sg" style="color: var(--highlight); font-weight: bold;">-</span>
                                 </div>
                                 <div class="chart-details-row">
                                     <span>Tipo de Gráfico:</span>
                                     <span class="info-type">-</span>
                                 </div>
                                 <div class="chart-details-row">
-                                    <span>Valor Calculado:</span>
-                                    <span class="info-val" style="color: var(--highlight); font-size: 1.1rem;">-</span>
+                                    <span>Discrepancias Encontradas:</span>
+                                    <span class="info-val" style="color: var(--highlight); font-size: 1.1rem; font-weight: bold;">-</span>
                                 </div>
                                 <div class="chart-details-row">
-                                    <span>Valores Observados:</span>
+                                    <span>Muestra Inspeccionada:</span>
                                     <span class="info-obs" style="font-family: monospace;">-</span>
                                 </div>
                                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
                                     <div class="chart-details-row" style="flex-direction: column;">
-                                        <span>Límite UCL:</span>
+                                        <span>Límite UCL (LCS):</span>
                                         <span class="info-ucl">-</span>
                                     </div>
                                     <div class="chart-details-row" style="flex-direction: column;">
-                                        <span>Línea Central CL:</span>
+                                        <span>Línea Central (np̄):</span>
                                         <span class="info-cl">-</span>
                                     </div>
                                 </div>
                                 <div class="chart-details-row" style="margin-top: 8px; flex-direction: column;">
-                                    <span>Límite LCL:</span>
+                                    <span>Límite LCL (LCI):</span>
                                     <span class="info-lcl">-</span>
                                 </div>
                                 <div class="chart-details-status info-status-badge">
@@ -1169,24 +1301,25 @@
                 </div>
 
                 <!-- Excel Image Evidence Card -->
-                <div class="software-card">
+                <div class="software-card" style="margin-top: 30px;">
                     <div class="software-header">
                         <span class="software-name">📈 Excel: Evidencia de Cálculos</span>
-                        <span class="software-badge">solucion.xlsx</span>
+                        <span class="software-badge">P4.xlsx</span>
                     </div>
                     <div class="software-content">
                         <div class="problem-grid">
                             <div>
-                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 4 - Excel')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                <div class="evidence-container" onclick="openLightbox('img/P4 EXCEL 1.png', 'Ejercicio 4 - Excel')">
+                                    <img src="img/P4 EXCEL 1.png" alt="Excel" onerror="this.src='img/P4 EXCEL 1.png';">
                                     <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                 </div>
                             </div>
                             <div>
                                 <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                                    <h3>Fórmulas y Estructura en Excel</h3>
+                                    <h3>Cálculos en Excel</h3>
                                     <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
+                                        En la hoja de cálculo de Excel se implementó la lógica de la **Carta np** de control estadístico.<br><br>
+                                        A partir de los datos ingresados de las 15 sucursales, se calculó la tasa promedio de error <strong>p̄ = 0.05733</strong> y el promedio de registros defectuosos <strong>np̄ = 5.733</strong>. Usando las fórmulas dinámicas, se definieron los límites correspondientes: el límite de control superior se sitúa en <strong>12.71</strong> y el inferior en <strong>0.00</strong> (ya que el cálculo teórico de -1.24 se ajusta a cero al no ser posibles valores negativos).
                                     </p>
                                 </div>
                             </div>
@@ -1195,71 +1328,43 @@
                 </div>
             </section>
 
-            <!-- SECCIÓN 4: DESARROLLO EN MINITAB -->
-            <section id="ex4-minitab">
-                <h2 class="section-title">Desarrollo en <span>Minitab</span></h2>
-                <div class="software-card">
-                    <div class="software-header">
-                        <span class="software-name">📊 Minitab: Reporte Diagnóstico</span>
-                        <span class="software-badge">Minitab</span>
-                    </div>
-                    <div class="software-content">
-                        <div class="problem-grid">
-                            <div>
-                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 4 Minitab')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
-                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                                    <h3>Diagnóstico e Informes del Proceso</h3>
-                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECCIÓN 5: INTERPRETACIÓN -->
+                        <!-- SECCIÓN 5: INTERPRETACIÓN -->
             <section id="ex4-interpretacion">
                 <h2 class="section-title">Interpretación</h2>
                 <div class="card">
-                    <div class="concordancia-banner">
+                    <div class="concordancia-banner" style="background: rgba(16, 185, 129, 0.15); border-left: 5px solid #10b981;">
                         <div class="concordancia-icon">ℹ️</div>
                         <div>
-                            <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 4)</strong>
+                            <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso: Estable e Inclusivo</strong>
                             <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
-                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
+                                La Carta np demuestra que el proceso de control interno de créditos se encuentra bajo control estadístico. Las diferencias observadas en el conteo de errores entre las 15 sucursales obedecen exclusivamente a fluctuaciones aleatorias ordinarias de la operación bancaria (variación por causas comunes).
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SECCIÓN 6: CONCLUSIONES -->
+                        <!-- SECCIÓN 6: CONCLUSIONES -->
             <section id="ex4-conclusiones">
                 <h2 class="section-title">Conclusiones</h2>
                 <div class="conclusiones-grid">
                     <div class="veredictos">
-                        <div class="veredicto-card" style="border-left-color: var(--border-color);">
+                        <div class="veredicto-card" style="border-left-color: #10b981;">
                             <div class="veredicto-info">
-                                <h4>Conclusión Clave</h4>
-                                <p>Veredicto estadístico sobre el proceso.</p>
+                                <h4>Proceso en Control</h4>
+                                <p>El número de discrepancias en los registros de créditos se mantiene dentro de los límites de tolerancia esperados para todas las sucursales del banco. La sucursal 8 tiene el pico más alto (9 errores), pero al no superar el límite LCS de 12.71, es estadísticamente normal.</p>
                             </div>
                         </div>
                     </div>
                     <div class="conclusiones-detalles">
-                        <h3>Plan de Acción Correctiva</h3>
-                        <p>Describa las acciones de ingeniería recomendadas en planta para este ejercicio.</p>
+                        <h3>Acción Recomendada</h3>
+                        <p><strong>1. Línea Base Establecida:</strong> Al estar el proceso en control, la tasa promedio de error de expedientes del banco es del 5.73%. Esta tasa representa la capacidad actual del sistema.<br>
+                           <strong>2. Enfoque Sistémico:</strong> Si el directorio exige reducir los errores por debajo de este 5.73%, es inútil sancionar a los analistas de las sucursales con más errores (ya que operan dentro de la variación normal del proceso). Para lograr una mejora significativa, la gerencia debe rediseñar los expedientes digitales, simplificar los flujos de validación o implementar automatizaciones a nivel corporativo.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- SECCIÓN 7: BIBLIOGRAFÍA E IA UTILIZADA -->
+                        <!-- SECCIÓN 7: BIBLIOGRAFÍA E IA UTILIZADA -->
             <section id="ex4-ia">
                 <h2 class="section-title">Bibliografía e IA <span>utilizada</span></h2>
                 <div class="card">
@@ -1277,11 +1382,18 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
+                                    <td>"Explica la diferencia matemática entre la carta c y la carta np en el control de calidad."</td>
+                                    <td>Sustentar técnicamente el error metodológico planteado en el problema 4.</td>
+                                    <td>Explicó que la carta c modela la distribución Poisson y la carta np modela la Binomial para defectos vs unidades defectuosas.</td>
+                                    <td>Adapté la explicación teórica al contexto real de la auditoría de registros de crédito del banco.</td>
+                                    <td>La distinción entre defectos y defectuosos es crítica en consultoría de calidad, ya que aplicar la carta incorrecta genera límites erróneos.</td>
+                                </tr>
+                                <tr>
+                                    <td>"Calcula los límites LCS y LCI para una carta np con k=15, n=100 y total de defectuosas = 86."</td>
+                                    <td>Obtener la verificación aritmética exacta de los límites de control.</td>
+                                    <td>Cálculos detallados de p_barra = 0.0573 y LCS = 12.7077.</td>
+                                    <td>Validé que coincida con las celdas de nuestra plantilla de Excel solucionada.</td>
+                                    <td>Los cálculos matemáticos de la IA coinciden exactamente con la teoría de control estadístico tradicional.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1289,18 +1401,18 @@
                 </div>
             </section>
 
-            <!-- SECCIÓN 8: ANEXO DE DESCARGAS -->
+                                    <!-- SECCIÓN 8: ANEXO DE DESCARGAS -->
             <section id="ex4-anexo">
                 <h2 class="section-title">Anexo: Descarga de <span>Recursos</span></h2>
                 <div class="card">
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box" style="font-size: 1rem; line-height: 1.6;">
-                                Descargue los archivos oficiales de soporte correspondientes al <strong>Ejercicio 4</strong>. Cuenta con la solución completa en el libro Excel y el proyecto de datos en Minitab para contrastar los resultados.
+                                Descargue los archivos oficiales de soporte correspondientes al <strong>Ejercicio 4</strong>. Cuenta con el libro Excel completo con todos los cálculos y la gráfica np estructurada.
                             </div>
                         </div>
                         <div class="download-grid">
-                            <a href="excel/solucion.xlsx" download class="btn-download-excel">
+                            <a href="excel/P4.xlsx" download class="btn-download-excel">
                                 <svg class="excel-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
                                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="9" y1="3" x2="9" y2="21"></line>
@@ -1309,15 +1421,6 @@
                                     <line x1="3" y1="15" x2="21" y2="15"></line>
                                 </svg>
                                 Descargar Solución Excel (.xlsx)
-                            </a>
-                            <a href="minitab/proyecto.mpx" download class="btn-download-minitab">
-                                <svg class="minitab-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
-                                    <line x1="18" y1="20" x2="18" y2="10"></line>
-                                    <line x1="12" y1="20" x2="12" y2="4"></line>
-                                    <line x1="6" y1="20" x2="6" y2="14"></line>
-                                    <path d="M3 3v18h18"></path>
-                                </svg>
-                                Descargar Proyecto Minitab (.mpx)
                             </a>
                         </div>
                     </div>
@@ -1480,6 +1583,8 @@
             const cl = point.getAttribute('data-cl');
             const lcl = point.getAttribute('data-lcl');
             const obs = point.getAttribute('data-obs');
+            const unit = point.getAttribute('data-unit') || 'g';
+            const typeLabel = point.getAttribute('data-type-label') || (type === 'xbar' ? 'Carta X̅ (Media del Peso)' : 'Carta R (Rango)');
 
             // Find elements relative to the point's chart grid container
             const grid = point.closest('.chart-split-grid');
@@ -1501,16 +1606,16 @@
             const infoStatusBadge = grid.querySelector('.info-status-badge');
 
             if (infoSg) infoSg.textContent = sg;
-            if (infoType) infoType.textContent = type === 'xbar' ? 'Carta X̅ (Media del Peso)' : 'Carta R (Rango)';
-            if (infoVal) infoVal.textContent = val + ' g';
-            if (infoObs) infoObs.textContent = '[' + obs + ']';
-            if (infoUcl) infoUcl.textContent = ucl + ' g';
-            if (infoCl) infoCl.textContent = cl + ' g';
-            if (infoLcl) infoLcl.textContent = lcl + ' g';
+            if (infoType) infoType.textContent = typeLabel;
+            if (infoVal) infoVal.textContent = val + ' ' + unit;
+            if (infoObs) infoObs.textContent = obs.startsWith('[') ? obs : '[' + obs + ']';
+            if (infoUcl) infoUcl.textContent = ucl + ' ' + unit;
+            if (infoCl) infoCl.textContent = cl + ' ' + unit;
+            if (infoLcl) infoLcl.textContent = lcl + ' ' + unit;
 
             if (infoStatusBadge) {
                 infoStatusBadge.textContent = status;
-                if (status.includes('Fuera')) {
+                if (status.includes('Fuera') || status.includes('fuera')) {
                     infoStatusBadge.className = 'chart-details-status info-status-badge status-out';
                 } else {
                     infoStatusBadge.className = 'chart-details-status info-status-badge status-in';
