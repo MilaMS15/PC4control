@@ -55,6 +55,7 @@
             flex-direction: column;
             padding: 25px 20px;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-x: visible; /* Let the toggle button stick out when collapsed */
         }
 
         /* Sidebar Brand / Logo */
@@ -109,6 +110,7 @@
             gap: 10px;
             flex-grow: 1;
             overflow-y: auto;
+            overflow-x: hidden; /* Prevent horizontal scrollbar on hover translation */
         }
 
         .sidebar-menu .nav-btn {
@@ -162,9 +164,8 @@
 
         /* FLOATING SIDEBAR TOGGLE BUTTON */
         .sidebar-toggle-btn {
-            position: fixed;
+            position: absolute;
             top: 20px;
-            left: 295px; /* 280px sidebar width + 15px spacing */
             z-index: 1001;
             background: linear-gradient(135deg, var(--border-color), var(--highlight));
             border: none;
@@ -188,6 +189,16 @@
 
         .sidebar-toggle-btn .icon-close {
             display: none;
+        }
+
+        /* Collapsed state (sticking out of hidden sidebar) */
+        body.sidebar-collapsed .sidebar-toggle-btn {
+            right: -55px;
+        }
+
+        /* Open state (positioned inside sidebar top right) */
+        body:not(.sidebar-collapsed) .sidebar-toggle-btn {
+            right: 20px;
         }
 
         /* BODY LAYOUTS FOR NAVIGATION STATES */
@@ -223,10 +234,6 @@
             transform: translateX(-100%);
         }
 
-        body.in-exercise.sidebar-collapsed .sidebar-toggle-btn {
-            left: 20px;
-        }
-
         body.in-exercise:not(.sidebar-collapsed) .sidebar-toggle-btn .icon-open {
             display: none;
         }
@@ -239,14 +246,6 @@
         @media (max-width: 991px) {
             .sidebar-navigation {
                 width: 260px;
-            }
-            
-            body.in-exercise .sidebar-toggle-btn {
-                left: 275px;
-            }
-            
-            body.in-exercise.sidebar-collapsed .sidebar-toggle-btn {
-                left: 20px;
             }
             
             body.in-exercise:not(.sidebar-collapsed) .sidebar-navigation {
@@ -283,9 +282,21 @@
 
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-bottom: 40px;
+        }
+        
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -646,6 +657,13 @@
             .problem-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Prevent grid blowout from wide content like tables on mobile */
+        .problem-grid > div,
+        .chart-split-grid > div,
+        .hipotesis-grid > div {
+            min-width: 0;
         }
 
         .desc-box {
@@ -1416,4 +1434,157 @@
             border-color: var(--highlight);
             box-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
             transform: translateY(-1px);
+        }
+
+        /* Exercise Header Bar with Repo Button */
+        .exercise-header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .exercise-header-bar .ex-label {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 0 10px var(--border-glow);
+        }
+        /* Mobile adjust for exercise header */
+        @media (max-width: 576px) {
+            .exercise-header-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        /* EXCEL AND MINITAB DOWNLOAD BUTTONS STYLE */
+        .download-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        @media (min-width: 576px) {
+            .download-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .btn-download-excel {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(16, 124, 65, 0.08);
+            border: 1px solid #107c41;
+            color: #a7f3d0;
+            padding: 12px 24px;
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 15px rgba(16, 124, 65, 0.15);
+        }
+
+        .btn-download-excel:hover {
+            color: #ffffff;
+            background: #107c41;
+            border-color: #107c41;
+            box-shadow: 0 6px 20px rgba(16, 124, 65, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .btn-download-minitab {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(0, 114, 198, 0.12);
+            border: 1px solid #0072c6;
+            color: #93c5fd;
+            padding: 12px 24px;
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 15px rgba(0, 114, 198, 0.2);
+        }
+
+        .btn-download-minitab:hover {
+            color: #ffffff;
+            background: #0072c6;
+            border-color: #0072c6;
+            box-shadow: 0 6px 20px rgba(0, 114, 198, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* MOBILE VIEW OPTIMIZATIONS (SCREENS UNDER 768PX) */
+        @media (max-width: 768px) {
+            /* General container padding */
+            .container {
+                padding: 10px 15px;
+            }
+            #dashboard-view {
+                padding: 20px 15px;
+            }
+            
+            /* Dashboard header scaling */
+            #dashboard-view header {
+                padding: 40px 15px;
+                margin-bottom: 25px;
+            }
+            #dashboard-view header h1 {
+                font-size: 2rem;
+            }
+            #dashboard-view header p {
+                font-size: 0.95rem;
+            }
+
+            /* Card paddings and spacing */
+            .card {
+                padding: 18px 15px;
+                border-radius: 12px;
+                margin-bottom: 20px;
+            }
+
+            /* Exercise Header label size */
+            .exercise-header-bar .ex-label {
+                font-size: 1.4rem;
+            }
+            .exercise-header-bar {
+                margin-bottom: 20px;
+                padding-bottom: 10px;
+            }
+
+            /* section titles */
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            /* Interactive SVGs height reduction on smaller mobile viewports */
+            .interactive-svg-wrapper {
+                height: 220px;
+            }
+        }
+
+        /* Prevent Toggle Button Overlap on Mobile/Tablet */
+        @media (max-width: 991px) {
+            body.in-exercise .container {
+                padding-top: 80px;
+            }
         }
