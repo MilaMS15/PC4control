@@ -645,63 +645,29 @@
             </div>
 
             
-            <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
+                        <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
             <section id="ex3-enunciado">
                 <h2 class="section-title">Descripción del <span>problema</span></h2>
                 <div class="card">
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 3</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                                <strong>Análisis de Capacidad del Proceso: Tiempos de Aprobación de Préstamos</strong><br><br>
+                                En una institución financiera, se desea evaluar la capacidad del proceso de aprobación de préstamos personales. La característica de calidad crítica es el <strong>tiempo de aprobación</strong> (en horas).<br><br>
+                                <strong>Especificaciones Técnicas:</strong><br>
+                                • Límite de Especificación Inferior (LSL): <strong>12 horas</strong><br>
+                                • Valor Nominal o Meta (Target): <strong>24 horas</strong><br>
+                                • Límite de Especificación Superior (USL): <strong>48 horas</strong><br><br>
+                                Se tomó una muestra de <strong>150 préstamos</strong>, donde se determinó una media poblacional estimada de <strong>26.5 horas</strong> y una desviación estándar de <strong>6.2 horas</strong>. El objetivo es analizar los índices de capacidad tradicionales (Cp, Cpk) y el <strong>índice de Taguchi (Cpm)</strong> para emitir un veredicto sobre la idoneidad del proceso.
                             </div>
                             <div class="interpretation-card">
                                 <h3>Interpretación del Enunciado:</h3>
-                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
-                            </div>
-                            <div class="table-container">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Subgrupo</th>
-                                            <th class="num">X1</th>
-                                            <th class="num">X2</th>
-                                            <th class="num">X3</th>
-                                            <th class="num">X4</th>
-                                            <th class="num">X5</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>1</strong></td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>2</strong></td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>3</strong></td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                            <td class="num">0.00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <p>Se evalúa si el sistema actual puede aprobar créditos dentro de la franja de tiempo prometida al cliente (12 a 48 h). Al usar el índice Cpm (Taguchi), se penalizará fuertemente cualquier desviación respecto al tiempo ideal (Target = 24h), buscando no solo estar dentro de los límites, sino centrar la calidad en el valor óptimo.</p>
                             </div>
                         </div>
                         <div>
-                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 3 - Enunciado')">
-                                <img src="img/image.png" alt="Enunciado Ejercicio 3" onerror="this.src='img/image.png';">
+                            <div class="evidence-container" onclick="openLightbox('img/P3.png', 'Ejercicio 3 - Enunciado')">
+                                <img src="img/P3.png" alt="Enunciado Ejercicio 3" onerror="this.src='img/P3.png';">
                                 <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
                             </div>
                         </div>
@@ -709,31 +675,31 @@
                 </div>
             </section>
 
-            <!-- SECCIÓN 2: IDENTIFICACIÓN DE LA CARTA -->
+                        <!-- SECCIÓN 2: IDENTIFICACIÓN DE LA CARTA -->
             <section id="ex3-seleccion">
-                <h2 class="section-title">Identificación de la <span>carta</span></h2>
+                <h2 class="section-title">Identificación de la <span>técnica</span></h2>
                 <div class="card">
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box">
-                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
+                                <strong>Técnica Seleccionada:</strong> Análisis de Capacidad de Proceso (Normal) e Índice de Taguchi (Cpm)
                                 <br><br>
                                 <strong>Justificación Técnica de Selección:</strong>
                                 <br>
-                                - Naturaleza del dato: (Ej. Variable continua cuantitativa o Atributos cualitativos)
+                                - <strong>Naturaleza del dato:</strong> Variable cuantitativa continua (Tiempo de aprobación medido en horas).
                                 <br>
-                                - Tamaño de subgrupo: (Ej. n = _VAL_ &le; 8 o n &gt; 8)
+                                - <strong>Supuesto del modelo:</strong> Los tiempos se modelan bajo una distribución de probabilidad Normal.
                                 <br>
-                                - Razón de uso: (Describa por qué se eligió esta carta según la teoría estadística).
+                                - <strong>Razón de uso:</strong> A diferencia de una carta de control gráfica que solo evalúa estabilidad a lo largo del tiempo, el análisis de capacidad contrasta la variabilidad natural del proceso contra los <strong>límites de especificación (LSL, USL)</strong> establecidos por la empresa. Además, la aplicación del índice Cpm (Taguchi) permite considerar el desplazamiento de la media respecto al valor nominal u objetivo (Target).
                             </div>
                         </div>
                         <div>
                             <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
                                 <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
                                 <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
-                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
+                                    <strong>En Excel:</strong> Se realiza el cálculo analítico exacto determinando que el índice Cp = 0.97 y Cpm = 0.90, ambos por debajo del criterio de aceptación mínima (1.00).
                                     <br><br>
-                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
+                                    <strong>En Minitab:</strong> El reporte visual arroja campanas de Gauss desplazadas hacia el límite superior. Múltiples métricas aparecen en categoría "Marginal" o "Inadecuada", indicando riesgo de generar tiempos de espera inaceptables para el cliente.
                                 </p>
                             </div>
                         </div>
@@ -741,183 +707,55 @@
                 </div>
             </section>
 
-            <!-- SECCIÓN 3: DESARROLLO EN EXCEL -->
+                        <!-- SECCIÓN 3: DESARROLLO EN EXCEL -->
             <section id="ex3-excel-svg">
                 <h2 class="section-title">Desarrollo en <span>Excel</span></h2>
                 <div class="card">
                     <div style="margin-bottom: 25px;">
-                        <h3 style="color: var(--highlight); margin-bottom: 10px;">Fórmulas y Parámetros</h3>
+                        <h3 style="color: var(--highlight); margin-bottom: 10px;">Fórmulas e Índices de Capacidad</h3>
                         <p style="font-size: 0.95rem; color: #d1c9e8; margin-bottom: 15px;">
-                            Cálculos analíticos aplicados en la hoja de Excel:
+                            Se evalúa la capacidad del proceso considerando la distancia entre los límites de especificación y la desviación de la media frente al valor objetivo:
                         </p>
                         <div class="hipotesis-grid">
                             <div class="hipotesis-card">
-                                <h3>Línea Central (CL)</h3>
+                                <h3>Índice de Capacidad Potencial (Cp)</h3>
                                 <div class="formula-box">
-                                    <p>Media del Proceso</p>
+                                    <p>Cp = (USL - LSL) / (6 * σ)</p>
                                 </div>
-                                <p class="subtext">Valor promedio general de la característica de calidad.</p>
+                                <p class="subtext">Compara la tolerancia permitida con la variación real. Cp = (48 - 12) / (6 * 6.2) = <strong>0.9677</strong></p>
                             </div>
                             <div class="hipotesis-card">
-                                <h3>Límites de Control (UCL / LCL)</h3>
+                                <h3>Índice de Taguchi (Cpm)</h3>
                                 <div class="formula-box">
-                                    <p>CL &plusmn; 3σ</p>
+                                    <p>Cpm = (USL - LSL) / (6 * √(σ² + (μ - Target)²))</p>
                                 </div>
-                                <p class="subtext">Límites calculados con las constantes estadísticas oficiales.</p>
+                                <p class="subtext">Penaliza el descentrado respecto al valor nominal. Cpm = 36 / (6 * 6.69) = <strong>0.8975</strong></p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Subgrupo</th>
-                                    <th class="num">Valor Promedio X̅</th>
-                                    <th class="num">Dispersión R/S</th>
-                                    <th>Estado Media</th>
-                                    <th>Estado Dispersión</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="cursor: pointer;">
-                                    <td><strong>Muestra 1</strong></td>
-                                    <td class="num">0.00</td>
-                                    <td class="num">0.00</td>
-                                    <td><span class="badge badge-sig">En Control</span></td>
-                                    <td><span class="badge badge-sig">En Control</span></td>
-                                </tr>
-                                <tr style="cursor: pointer;">
-                                    <td><strong>Muestra 2</strong></td>
-                                    <td class="num">0.00</td>
-                                    <td class="num">0.00</td>
-                                    <td><span class="badge badge-sig">En Control</span></td>
-                                    <td><span class="badge badge-sig">En Control</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="chart-split-grid" style="margin-top: 30px; margin-bottom: 30px;">
-                    <div class="chart-flex">
-                        <!-- X-bar Chart -->
-                        <div class="control-chart-container">
-                            <div class="control-chart-header">
-                                <div class="control-chart-title">
-                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 3
-                                </div>
-                            </div>
-                            <div class="interactive-svg-wrapper">
-                                <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
-                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
-                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
-                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
-                                    
-                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
-                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
-                                    
-                                    <!-- UCL: Y=50 -->
-                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
-                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
-                                    
-                                    <!-- CL: Y=125 -->
-                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
-                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
-                                    
-                                    <!-- LCL: Y=200 -->
-                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
-                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
-
-                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
-                                    
-                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
-                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
-                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
-                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
-                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
-                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
-                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
-                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
-                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
-                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
-                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
-                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
-                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
-                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
-                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
-                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
-                                </svg>
-                            </div>
+                    <!-- Excel Image Evidence Card -->
+                    <div class="software-card" style="margin-top: 30px;">
+                        <div class="software-header">
+                            <span class="software-name">📈 Excel: Evidencia de Cálculos</span>
+                            <span class="software-badge">P3.xlsx</span>
                         </div>
-                    </div>
-
-                    <!-- Sidebar detail card -->
-                    <div>
-                        <div class="chart-details-panel">
-                            <h3 class="chart-details-title">Detalles de Auditoría (Ex3)</h3>
-                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
-                                Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
-                            </div>
-                            <div class="info-content" style="display: none;">
-                                <div class="chart-details-row">
-                                    <span>Muestra / Subgrupo:</span>
-                                    <span class="info-sg">-</span>
-                                </div>
-                                <div class="chart-details-row">
-                                    <span>Tipo de Gráfico:</span>
-                                    <span class="info-type">-</span>
-                                </div>
-                                <div class="chart-details-row">
-                                    <span>Valor Calculado:</span>
-                                    <span class="info-val" style="color: var(--highlight); font-size: 1.1rem;">-</span>
-                                </div>
-                                <div class="chart-details-row">
-                                    <span>Valores Observados:</span>
-                                    <span class="info-obs" style="font-family: monospace;">-</span>
-                                </div>
-                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
-                                    <div class="chart-details-row" style="flex-direction: column;">
-                                        <span>Límite UCL:</span>
-                                        <span class="info-ucl">-</span>
-                                    </div>
-                                    <div class="chart-details-row" style="flex-direction: column;">
-                                        <span>Línea Central CL:</span>
-                                        <span class="info-cl">-</span>
+                        <div class="software-content">
+                            <div class="problem-grid">
+                                <div>
+                                    <div class="evidence-container" onclick="openLightbox('img/P3 EXCEL 1.png', 'Ejercicio 3 - Excel')">
+                                        <img src="img/P3 EXCEL 1.png" alt="Excel" onerror="this.src='img/P3 EXCEL 1.png';">
+                                        <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
                                     </div>
                                 </div>
-                                <div class="chart-details-row" style="margin-top: 8px; flex-direction: column;">
-                                    <span>Límite LCL:</span>
-                                    <span class="info-lcl">-</span>
-                                </div>
-                                <div class="chart-details-status info-status-badge">
-                                    En Control
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Excel Image Evidence Card -->
-                <div class="software-card">
-                    <div class="software-header">
-                        <span class="software-name">📈 Excel: Evidencia de Cálculos</span>
-                        <span class="software-badge">solucion.xlsx</span>
-                    </div>
-                    <div class="software-content">
-                        <div class="problem-grid">
-                            <div>
-                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 3 - Excel')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
-                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                                    <h3>Fórmulas y Estructura en Excel</h3>
-                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
-                                    </p>
+                                <div>
+                                    <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                        <h3>Fórmulas y Estructura en Excel</h3>
+                                        <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                            En la hoja de Excel se formularon los índices de capacidad clásicos (Cp, Cpk, Cps, Cpi).<br><br>
+                                            El cálculo del índice de Taguchi requiere previamente calcular la constante <strong>Tau (τ)</strong>, que representa la raíz cuadrada de la suma de la varianza poblacional ($\sigma^2$) y el cuadrado del descentramiento $(\mu - Target)^2$. Al estar la media en 26.5 y el Target en 24, existe un claro descentramiento que empeora el índice final a 0.8975, declarándolo como un proceso <strong>NO APTO</strong> (menor a 1.00).
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -930,40 +768,37 @@
                 <h2 class="section-title">Desarrollo en <span>Minitab</span></h2>
                 <div class="software-card">
                     <div class="software-header">
-                        <span class="software-name">📊 Minitab: Reporte Diagnóstico</span>
-                        <span class="software-badge">Minitab</span>
+                        <span class="software-name">📊 Minitab: Reporte de Capacidad</span>
+                        <span class="software-badge">P3.mpx</span>
                     </div>
                     <div class="software-content">
-                        <div class="problem-grid">
-                            <div>
-                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 3 Minitab')">
-                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
-                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
-                                    <h3>Diagnóstico e Informes del Proceso</h3>
-                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
-                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
-                                    </p>
-                                </div>
+                        <div class="evidence-box" style="text-align: center; margin-bottom: 20px;">
+                            <h4 style="margin-bottom: 15px; font-size: 1.1rem; color: var(--highlight);">Informe de Capacidad del Proceso (Capacidad Normal)</h4>
+                            <img src="img/P3 MINITAB 1.jpeg" alt="Informe de Capacidad Minitab P3" class="minitab-img" onclick="openLightbox(this.src, 'Informe de Capacidad del Proceso - Ejercicio 3')" style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 8px; cursor: zoom-in;">
+                            <div class="desc-box" style="margin-top: 15px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+                                <p><strong>Interpretación:</strong> El informe de capacidad normal generado por Minitab revela el desempeño del proceso de tiempos de aprobación ($N=150$). Se observa que el histograma con el ajuste normal está notablemente desviado hacia la derecha de la línea objetivo (Target = 24.0 horas), con una media real de <strong>26.5 horas</strong> y una desviación estándar de <strong>6.2 horas</strong>.</p>
+                                <p style="margin-top: 10px;">Los índices de capacidad confirman de forma contundente la deficiencia del proceso:</p>
+                                <ul style="margin-top: 5px; margin-left: 20px; line-height: 1.5;">
+                                    <li>El índice de capacidad potencial <strong>Cp = 0.97</strong> (menor al mínimo de 1.00) indica que la variabilidad natural del proceso ($\pm 3\sigma$) supera la tolerancia total permitida de especificaciones (12 a 48 horas).</li>
+                                    <li>El índice de capacidad real de corto plazo <strong>Cpk = 0.78</strong> refleja el empeoramiento causado por el descentrado de la media hacia el límite superior de especificación.</li>
+                                    <li>El índice de Taguchi <strong>Cpm = 0.90</strong> confirma formalmente que el proceso no es apto (valor &lt; 1.00) debido al castigo cuadrático aplicado por la desviación del promedio respecto al Target de 24 horas.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- SECCIÓN 5: INTERPRETACIÓN -->
+                        <!-- SECCIÓN 5: INTERPRETACIÓN -->
             <section id="ex3-interpretacion">
                 <h2 class="section-title">Interpretación</h2>
                 <div class="card">
-                    <div class="concordancia-banner">
-                        <div class="concordancia-icon">ℹ️</div>
+                    <div class="concordancia-banner" style="background: rgba(239, 68, 68, 0.15); border-left: 5px solid #ef4444;">
+                        <div class="concordancia-icon">⚠️</div>
                         <div>
-                            <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 3)</strong>
-                            <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
-                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
+                            <strong style="color: #ffffff; font-size: 1.1rem;">Proceso Deficiente (Incapaz)</strong>
+                            <p style="color: #fca5a5; font-size: 0.9rem; margin-top: 4px;">
+                                Todos los índices de capacidad evaluados arrojan un resultado inferior a 1.00 ($C_{pk}=0.78$, $C_{pm}=0.90$), lo que denota una incapacidad manifiesta para cumplir con los requerimientos del cliente de manera consistente.
                             </p>
                         </div>
                     </div>
@@ -975,16 +810,17 @@
                 <h2 class="section-title">Conclusiones</h2>
                 <div class="conclusiones-grid">
                     <div class="veredictos">
-                        <div class="veredicto-card" style="border-left-color: var(--border-color);">
+                        <div class="veredicto-card" style="border-left-color: #ef4444;">
                             <div class="veredicto-info">
-                                <h4>Conclusión Clave</h4>
-                                <p>Veredicto estadístico sobre el proceso.</p>
+                                <h4>Proceso Desviado</h4>
+                                <p>El promedio de tiempo de aprobación (26.5h) se desvía considerablemente del valor óptimo de 24.0h, acercándose peligrosamente al límite superior permitido. Esto impacta drásticamente el índice de Taguchi, el cual penaliza la falta de centralidad de la calidad.</p>
                             </div>
                         </div>
                     </div>
                     <div class="conclusiones-detalles">
                         <h3>Plan de Acción Correctiva</h3>
-                        <p>Describa las acciones de ingeniería recomendadas en planta para este ejercicio.</p>
+                        <p><strong>1. Análisis de Cuellos de Botella:</strong> Identificar y eliminar retrasos burocráticos en las fases de aprobación de créditos para reducir la media (centrar el proceso).<br>
+                           <strong>2. Reducción de Variabilidad:</strong> Estandarizar los criterios de evaluación financiera, ya que la desviación estándar de 6.2 horas es excesiva e induce un $C_p < 1$.</p>
                     </div>
                 </div>
             </section>
@@ -1007,11 +843,18 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
+                                    <td>"Desarrolla el análisis de capacidad normal de un proceso con T=24, LSL=12, USL=48, media=26.5 y std=6.2. Calcula Cpm."</td>
+                                    <td>Validar los resultados teóricos de capacidad y el índice Taguchi.</td>
+                                    <td>Proporcionó el cálculo exacto de Tau y la sustitución paso a paso en la fórmula matemática.</td>
+                                    <td>Adapté los formatos y precisiones decimales a los solicitados en la plantilla.</td>
+                                    <td>La IA es indispensable para visualizar geométricamente el impacto del descentrado en el índice Cpm y sus diferencias con Cpk.</td>
+                                </tr>
+                                <tr>
+                                    <td>"Escribe código en Python con Matplotlib para dibujar una gráfica similar a la Capability Sixpack de Minitab."</td>
+                                    <td>Obtener gráficos equivalentes para contrastar.</td>
+                                    <td>Generó código completo dibujando histogramas, umbrales y gráfica Q-Q.</td>
+                                    <td>Ajusté las variables a los límites de nuestro problema y los colores de la gráfica.</td>
+                                    <td>Emular Minitab programáticamente refuerza el entendimiento paramétrico de lo que el software de caja negra está calculando.</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1026,11 +869,11 @@
                     <div class="problem-grid">
                         <div>
                             <div class="desc-box" style="font-size: 1rem; line-height: 1.6;">
-                                Descargue los archivos oficiales de soporte correspondientes al <strong>Ejercicio 3</strong>. Cuenta con la solución completa en el libro Excel y el proyecto de datos en Minitab para contrastar los resultados.
+                                Descargue los archivos oficiales de soporte correspondientes al <strong>Ejercicio 3</strong>. Cuenta con la solución completa en el libro Excel y el proyecto de datos en Minitab preparado con los 150 valores poblacionales simulados.
                             </div>
                         </div>
                         <div class="download-grid">
-                            <a href="excel/solucion.xlsx" download class="btn-download-excel">
+                            <a href="excel/P3.xlsx" download class="btn-download-excel">
                                 <svg class="excel-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
                                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="9" y1="3" x2="9" y2="21"></line>
@@ -1040,7 +883,7 @@
                                 </svg>
                                 Descargar Solución Excel (.xlsx)
                             </a>
-                            <a href="minitab/proyecto.mpx" download class="btn-download-minitab">
+                            <a href="minitab/P3.mpx" download class="btn-download-minitab">
                                 <svg class="minitab-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle;">
                                     <line x1="18" y1="20" x2="18" y2="10"></line>
                                     <line x1="12" y1="20" x2="12" y2="4"></line>
