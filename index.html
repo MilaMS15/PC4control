@@ -1,0 +1,2725 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Estadístico de Procesos - Dashboard Multiejercicios</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="scroll-progress"></div>
+
+    <!-- MAIN HEADER (Portada en solo el frontend) -->
+    <header>
+        <div class="author-badge">
+            Análisis Estadístico Desarrollado por <strong>Milagros Lidia Mayta Soto</strong>
+        </div>
+        <div class="header-content">
+            <span class="header-tag">Control Estadístico de Procesos</span>
+            <h1>Dashboard de Control de Procesos</h1>
+            <p>Guía Práctica e Interpretación de Evidencias (Minitab & Excel)</p>
+        </div>
+    </header>
+
+    <!-- GLASSMORPHIC NAVIGATION BAR (6 Exercises) -->
+    <nav class="nav-exercises">
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="switchExercise(1)">
+                <span>📂</span> Ejercicio 1 (Guía)
+            </button>
+            <button class="nav-btn" onclick="switchExercise(2)">
+                <span>📝</span> Ejercicio 2
+            </button>
+            <button class="nav-btn" onclick="switchExercise(3)">
+                <span>📝</span> Ejercicio 3
+            </button>
+            <button class="nav-btn" onclick="switchExercise(4)">
+                <span>📝</span> Ejercicio 4
+            </button>
+            <button class="nav-btn" onclick="switchExercise(5)">
+                <span>📝</span> Ejercicio 5
+            </button>
+            <button class="nav-btn" onclick="switchExercise(6)">
+                <span>📝</span> Ejercicio 6
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- ============================================== -->
+        <!-- EJERCICIO 1 (GUÍA): AMAZON ROBOTICS CONTROL CHARTS -->
+        <!-- ============================================== -->
+        <div class="exercise-pane active" id="exercise-1">
+
+            <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
+            <section id="ex1-enunciado">
+                <h2 class="section-title">Descripción del <span>problema</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                <strong>Amazon Robotics</strong> controla el peso de sensores de navegación. Cada hora se toman subgrupos de <strong>n = 5</strong> sensores. A continuación, se presenta la matriz de datos de peso en gramos obtenida en las últimas 5 horas de muestreo.
+                            </div>
+                            
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Subgrupo (Hora)</th>
+                                            <th class="num">X1</th>
+                                            <th class="num">X2</th>
+                                            <th class="num">X3</th>
+                                            <th class="num">X4</th>
+                                            <th class="num">X5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>1</strong></td>
+                                            <td class="num">54.80</td>
+                                            <td class="num">54.90</td>
+                                            <td class="num">54.70</td>
+                                            <td class="num">54.90</td>
+                                            <td class="num">54.80</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>2</strong></td>
+                                            <td class="num">55.10</td>
+                                            <td class="num">55.00</td>
+                                            <td class="num">54.90</td>
+                                            <td class="num">55.20</td>
+                                            <td class="num">55.10</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3</strong></td>
+                                            <td class="num">55.20</td>
+                                            <td class="num">55.30</td>
+                                            <td class="num">55.10</td>
+                                            <td class="num">55.20</td>
+                                            <td class="num">55.40</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>4</strong></td>
+                                            <td class="num">55.50</td>
+                                            <td class="num">55.40</td>
+                                            <td class="num">55.60</td>
+                                            <td class="num">55.50</td>
+                                            <td class="num">55.40</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>5</strong></td>
+                                            <td class="num">55.80</td>
+                                            <td class="num">55.70</td>
+                                            <td class="num">55.60</td>
+                                            <td class="num">55.80</td>
+                                            <td class="num">55.70</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 1 - Enunciado de Amazon Robotics')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 1" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 2: IDENTIFICACIÓN DE LA CARTA -->
+            <section id="ex1-seleccion">
+                <h2 class="section-title">Identificación de la <span>carta</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                <strong>Carta Seleccionada:</strong> Gráfico de Control X̅-R (Medias y Rangos).
+                                <br><br>
+                                <strong>Justificación Técnica de Selección:</strong>
+                                <br>
+                                - La variable bajo control (peso del sensor en gramos) es de naturaleza <strong>continua</strong> y cuantitativa.
+                                <br>
+                                - El tamaño del subgrupo muestral tomado cada hora es pequeño (<strong>n = 5 &le; 8</strong>). Según la teoría de control de procesos, para subgrupos de este tamaño se prefiere estimar la variabilidad mediante el rango R (Carta X̅-R) debido a su simplicidad y efectividad práctica, en lugar del desvío estándar S.
+                            </div>
+                        </div>
+                        <div>
+                            <div class="interpretation-card" style="border-left-color: var(--error); background: rgba(239, 68, 68, 0.03); height: 100%;">
+                                <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
+                                <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
+                                    <strong>En Excel:</strong> Los cálculos muestran de forma contundente que el proceso está <strong>fuera de control</strong>. En el gráfico X̅, los subgrupos de las Horas 1 y 2 caen por debajo del LCL (55.122 g), mientras que las Horas 4 y 5 superan el UCL (55.422 g). Esto revela una deriva lineal (tendencia ascendente) sistemática de la media. El gráfico R se mantiene estable dentro de límites.
+                                    <br><br>
+                                    <strong>En Minitab Assistant:</strong> El reporte confirma plenamente esta inestabilidad, emitiendo una <strong>alerta roja de estabilidad</strong> debido a que el <strong>80.0% de los subgrupos (4 de 5) se encuentran fuera de límites</strong>. Minitab concluye que el promedio del proceso no es estable y advierte explícitamente no utilizar estos límites para el control de la producción futura.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 3: DESARROLLO EN EXCEL -->
+            <section id="ex1-excel-svg">
+                <h2 class="section-title">Desarrollo en <span>Excel</span></h2>
+                <div class="card">
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: var(--highlight); margin-bottom: 10px;">Cálculo Analítico y Fórmulas</h3>
+                        <p style="font-size: 0.95rem; color: #d1c9e8; margin-bottom: 15px;">
+                            Aplicación de las fórmulas de límites en Excel utilizando constantes oficiales para subgrupo n=5:
+                        </p>
+                        <div class="hipotesis-grid">
+                            <div class="hipotesis-card">
+                                <h3>Gráfico X̅ (Medias)</h3>
+                                <div class="formula-box" style="line-height: 1.6;">
+                                    <p>UCL = X̿ + A₂ * R̄</p>
+                                    <p>LCL = X̿ - A₂ * R̄</p>
+                                    <p class="subtext" style="color: var(--highlight);">Excel: =G10 + (0.577 * H10)</p>
+                                </div>
+                                <p class="subtext">Límites: UCL = 55.4220 | LCL = 55.1220</p>
+                            </div>
+                            <div class="hipotesis-card">
+                                <h3>Gráfico R (Rangos)</h3>
+                                <div class="formula-box" style="line-height: 1.6;">
+                                    <p>UCL = D₄ * R̄</p>
+                                    <p>LCL = D₃ * R̄</p>
+                                    <p class="subtext" style="color: var(--highlight);">Excel: =2.114 * H10</p>
+                                </div>
+                                <p class="subtext">Límites: UCL = 0.5496 | LCL = 0.0000</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Subgrupo</th>
+                                    <th class="num">Media del Peso X̅</th>
+                                    <th class="num">Rango de Peso R</th>
+                                    <th>Estado Media (X̅)</th>
+                                    <th>Estado Rango (R)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(1)">
+                                    <td><strong>Hora 1</strong></td>
+                                    <td class="num">54.8600</td>
+                                    <td class="num">0.3000</td>
+                                    <td><span class="badge badge-ns">Fuera (Bajo LCL)</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(2)">
+                                    <td><strong>Hora 2</strong></td>
+                                    <td class="num">55.0600</td>
+                                    <td class="num">0.3000</td>
+                                    <td><span class="badge badge-ns">Fuera (Bajo LCL)</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(3)">
+                                    <td><strong>Hora 3</strong></td>
+                                    <td class="num">55.2400</td>
+                                    <td class="num">0.3000</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(4)">
+                                    <td><strong>Hora 4</strong></td>
+                                    <td class="num">55.4800</td>
+                                    <td class="num">0.2000</td>
+                                    <td><span class="badge badge-ns">Fuera (Sobre UCL)</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;" onclick="highlightSvgPoint(5)">
+                                    <td><strong>Hora 5</strong></td>
+                                    <td class="num">55.7200</td>
+                                    <td class="num">0.2000</td>
+                                    <td><span class="badge badge-ns">Fuera (Sobre UCL)</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="background: rgba(124, 58, 237, 0.15); font-weight: bold;">
+                                    <td><strong>Promedio Central</strong></td>
+                                    <td class="num" style="color: var(--highlight);">55.2720 (X̿)</td>
+                                    <td class="num" style="color: var(--highlight);">0.2600 (R̄)</td>
+                                    <td>UCL: 55.422 | LCL: 55.122</td>
+                                    <td>UCL: 0.550 | LCL: 0.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chart-split-grid" style="margin-top: 30px; margin-bottom: 30px;">
+                    <div class="chart-flex">
+                        <!-- X-bar Chart -->
+                        <div class="control-chart-container">
+                            <div class="control-chart-header">
+                                <div class="control-chart-title">
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅)
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary);">
+                                    UCL: 55.422 | LCL: 55.122
+                                </div>
+                            </div>
+                            <div class="interactive-svg-wrapper">
+                                <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="90" x2="520" y2="90" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="154" x2="520" y2="154" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="212" x2="520" y2="212" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
+                                    <text x="25" y="216" fill="#a78bfa" font-size="10" font-family="Space Grotesk">54.8</text>
+                                    <text x="25" y="158" fill="#a78bfa" font-size="10" font-family="Space Grotesk">55.2</text>
+                                    <text x="25" y="94" fill="#a78bfa" font-size="10" font-family="Space Grotesk">55.6</text>
+                                    <text x="25" y="30" fill="#a78bfa" font-size="10" font-family="Space Grotesk">56.0</text>
+                                    
+                                    <!-- UCL: 55.422 (Y=124.3) -->
+                                    <line x1="50" y1="124.3" x2="520" y2="124.3" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="127" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL (55.422)</text>
+                                    
+                                    <!-- CL: 55.272 (Y=154) -->
+                                    <line x1="50" y1="154" x2="520" y2="154" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="157" fill="#10b981" font-size="9" font-family="Space Grotesk">CL (55.272)</text>
+                                    
+                                    <!-- LCL: 55.122 (Y=175.4) -->
+                                    <line x1="50" y1="175.4" x2="520" y2="175.4" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="178" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL (55.122)</text>
+
+                                    <polyline points="100,212.8 190,184.3 280,158.6 370,124.3 460,90" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="212.8" r="6" class="svg-point out-of-control" 
+                                            data-sg="1" data-type="xbar" data-val="54.860" data-status="Fuera de límites (Bajo LCL)" 
+                                            data-lcl="55.122" data-ucl="55.422" data-cl="55.272" data-obs="54.8, 54.9, 55.0, 54.7, 54.9"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="190" cy="184.3" r="6" class="svg-point out-of-control" 
+                                            data-sg="2" data-type="xbar" data-val="55.060" data-status="Fuera de límites (Bajo LCL)" 
+                                            data-lcl="55.122" data-ucl="55.422" data-cl="55.272" data-obs="55.1, 55.0, 54.9, 55.2, 55.1"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="280" cy="158.6" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="55.240" data-status="Dentro de Control" 
+                                            data-lcl="55.122" data-ucl="55.422" data-cl="55.272" data-obs="55.2, 55.3, 55.1, 55.2, 55.4"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="370" cy="124.3" r="6" class="svg-point out-of-control" 
+                                            data-sg="4" data-type="xbar" data-val="55.480" data-status="Fuera de límites (Sobre UCL)" 
+                                            data-lcl="55.122" data-ucl="55.422" data-cl="55.272" data-obs="55.5, 55.4, 55.6, 55.5, 55.4"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="90" r="6" class="svg-point out-of-control" 
+                                            data-sg="5" data-type="xbar" data-val="55.720" data-status="Fuera de límites (Sobre UCL)" 
+                                            data-lcl="55.122" data-ucl="55.422" data-cl="55.272" data-obs="55.8, 55.7, 55.6, 55.8, 55.7"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                            
+                                    <text x="94" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 1</text>
+                                    <text x="184" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 2</text>
+                                    <text x="274" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 3</text>
+                                    <text x="364" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 4</text>
+                                    <text x="454" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 5</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- R Chart -->
+                        <div class="control-chart-container">
+                            <div class="control-chart-header">
+                                <div class="control-chart-title">
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Rangos (Carta R)
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--text-secondary);">
+                                    UCL: 0.550 | LCL: 0.000
+                                </div>
+                            </div>
+                            <div class="interactive-svg-wrapper">
+                                <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="80.9" x2="520" y2="80.9" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="170" x2="520" y2="170" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
+                                    <text x="25" y="234" fill="#a78bfa" font-size="10" font-family="Space Grotesk">0.0</text>
+                                    <text x="25" y="174" fill="#a78bfa" font-size="10" font-family="Space Grotesk">0.26</text>
+                                    <text x="25" y="85" fill="#a78bfa" font-size="10" font-family="Space Grotesk">0.55</text>
+                                    
+                                    <line x1="50" y1="80.9" x2="520" y2="80.9" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="84" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL (0.550)</text>
+                                    
+                                    <line x1="50" y1="170" x2="520" y2="170" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="173" fill="#10b981" font-size="9" font-family="Space Grotesk">CL (0.260)</text>
+                                    
+                                    <line x1="50" y1="230" x2="520" y2="230" class="svg-cl-line" stroke="#ef4444"/>
+                                    <text x="522" y="228" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL (0.000)</text>
+
+                                    <polyline points="100,157.7 190,157.7 280,157.7 370,188.5 460,188.5" class="svg-data-line" stroke="#a78bfa"/>
+                                    
+                                    <circle cx="100" cy="157.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="r" data-val="0.300" data-status="Dentro de Control" 
+                                            data-lcl="0.000" data-ucl="0.550" data-cl="0.260" data-obs="54.8, 54.9, 55.0, 54.7, 54.9"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="190" cy="157.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="r" data-val="0.300" data-status="Dentro de Control" 
+                                            data-lcl="0.000" data-ucl="0.550" data-cl="0.260" data-obs="55.1, 55.0, 54.9, 55.2, 55.1"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="280" cy="157.7" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="r" data-val="0.300" data-status="Dentro de Control" 
+                                            data-lcl="0.000" data-ucl="0.550" data-cl="0.260" data-obs="55.2, 55.3, 55.1, 55.2, 55.4"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="370" cy="188.5" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="r" data-val="0.200" data-status="Dentro de Control" 
+                                            data-lcl="0.000" data-ucl="0.550" data-cl="0.260" data-obs="55.5, 55.4, 55.6, 55.5, 55.4"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="188.5" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="5" data-type="r" data-val="0.200" data-status="Dentro de Control" 
+                                            data-lcl="0.000" data-ucl="0.550" data-cl="0.260" data-obs="55.8, 55.7, 55.6, 55.8, 55.7"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                            
+                                    <text x="94" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 1</text>
+                                    <text x="184" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 2</text>
+                                    <text x="274" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 3</text>
+                                    <text x="364" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 4</text>
+                                    <text x="454" y="244" fill="#a78bfa" font-size="9" font-family="Space Grotesk">Hora 5</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar detail card -->
+                    <div>
+                        <div class="chart-details-panel">
+                            <h3 class="chart-details-title">Detalles de Auditoría</h3>
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                                Pase el cursor sobre los círculos del gráfico para auditar los subgrupos estadísticos de Amazon Robotics.
+                            </div>
+                            <div class="info-content" style="display: none;">
+                                <div class="chart-details-row">
+                                    <span>Hora de Muestreo:</span>
+                                    <span class="info-sg">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Tipo de Gráfico:</span>
+                                    <span class="info-type">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valor Calculado:</span>
+                                    <span class="info-val" style="color: var(--highlight); font-size: 1.1rem;">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Muestra del Subgrupo:</span>
+                                    <span class="info-obs" style="font-family: monospace;">-</span>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Límite Superior (UCL):</span>
+                                        <span class="info-ucl">-</span>
+                                    </div>
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Línea Central (CL):</span>
+                                        <span class="info-cl">-</span>
+                                    </div>
+                                </div>
+                                <div class="chart-details-row" style="margin-top: 8px; flex-direction: column;">
+                                    <span>Límite Inferior (LCL):</span>
+                                    <span class="info-lcl">-</span>
+                                </div>
+                                <div class="chart-details-status info-status-badge">
+                                    Fuera de Control
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Excel Image Evidence Card (Moved here!) -->
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📈 Excel: Fórmulas y Matriz de Control</span>
+                        <span class="software-badge">solucion.xlsx</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Excel: Cálculo analítico de límites y estadísticas de subgrupo')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Fórmulas Aplicadas en la Hoja Excel</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        El libro Excel calcula dinámicamente las estadísticas de cada subgrupo:
+                                    </p>
+                                    <div class="code-snippet">
+Media X̅: =PROMEDIO(B5:F5)
+Rango R: =MAX(B5:F5)-MIN(B5:F5)
+Grand Mean X̿: =PROMEDIO(G5:G9)
+Mean Range R̄: =PROMEDIO(H5:H9)
+
+Media LCL/UCL: =G10 &plusmn; (0.577 * H10)
+Rango UCL: =2.114 * H10
+Rango LCL: =0.000 * H10
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 4: DESARROLLO EN MINITAB -->
+            <section id="ex1-minitab">
+                <h2 class="section-title">Desarrollo en <span>Minitab</span></h2>
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📊 Minitab: Reporte Diagnóstico del Asistente</span>
+                        <span class="software-badge">Assistant</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Minitab Assistant: Informe de estabilidad del peso')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Análisis de Estabilidad en Minitab</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.7;">
+                                        El Asistente de Minitab emite una <strong>Alerta Roja</strong> de inestabilidad, detectando que el <strong>80.0%</strong> de los subgrupos están fuera de control. 
+                                        <br><br>
+                                        Minitab genera de forma automatizada los mismos límites calculados en Excel (UCL = 55.422, LCL = 55.122) y confirma el veredicto de proceso no estable. Advierte que los límites actuales están distorsionados por la deriva y no deben emplearse para control futuro.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 5: INTERPRETACIÓN -->
+            <section id="ex1-interpretacion">
+                <h2 class="section-title">Interpretación</h2>
+                <div class="card">
+                    <div class="concordancia-banner">
+                        <div class="concordancia-icon">⚠️</div>
+                        <div>
+                            <strong style="color: #ffffff; font-size: 1.1rem;">Diagnóstico Estadístico Crítico: PROCESO FUERA DE CONTROL</strong>
+                            <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
+                                La media del proceso presenta un desplazamiento lineal severo de deriva (drift), cruzando ambos límites de control.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="conclusiones-grid">
+                        <div class="veredictos">
+                            <div class="veredicto-card" style="border-left-color: var(--error);">
+                                <div class="veredicto-info">
+                                    <h4>Desplazamiento del Promedio</h4>
+                                    <p>4 de 5 subgrupos fuera de control en la carta X̅</p>
+                                </div>
+                                <span class="badge badge-ns">Crítico</span>
+                            </div>
+                            <div class="veredicto-card" style="border-left-color: var(--success);">
+                                <div class="veredicto-info">
+                                    <h4>Estabilidad de Dispersión (R)</h4>
+                                    <p>Todos los rangos dentro de límites (R̄ = 0.26)</p>
+                                </div>
+                                <span class="badge badge-sig">Estable</span>
+                            </div>
+                            <div class="veredicto-card" style="border-left-color: var(--warning);">
+                                <div class="veredicto-info">
+                                    <h4>Acción Correctiva de Urgencia</h4>
+                                    <p>Recalibración de inyectores y parada de línea</p>
+                                </div>
+                                <span class="badge badge-ns" style="background-color: rgba(245,158,11,0.2); color: var(--warning); border-color: var(--warning);">Acción</span>
+                            </div>
+                        </div>
+
+                        <div class="conclusiones-detalles">
+                            <h3 style="color: var(--highlight);">Análisis Técnico y Acciones Correctivas</h3>
+                            <ul>
+                                <li>
+                                    <strong>Patrón de Desplazamiento (Drift):</strong> Se observa una tendencia ascendente continua y directa. Este comportamiento no es aleatorio; es una causa asignable típica de <strong>desgaste progresivo de moldes</strong>, <strong>dilatación térmica de cabezales dosificadores</strong> o <strong>acumulación de residuos en las boquillas de dosificación</strong>.
+                                </li>
+                                <li class="corrective">
+                                    <strong>Plan de Contingencia de Ingeniería:</strong>
+                                    <br>
+                                    1. <strong>Paro de Producción:</strong> Detener inmediatamente la calibración de sensores.
+                                    <br>
+                                    2. <strong>Intervención y Limpieza:</strong> Limpiar e inspeccionar el sistema dosificador de peso.
+                                    <br>
+                                    3. <strong>Calibración:</strong> Ajustar los sensores de peso del sistema robotizado a su especificación nominal de 55.0 gramos.
+                                    <br>
+                                    4. <strong>Aislamiento de Lotes:</strong> Retener el producto fabricado en las horas 1, 2, 4 y 5 para inspección al 100% y descarte de sensores fuera de tolerancias de diseño.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 6: CONCLUSIONES -->
+            <section id="ex1-conclusiones">
+                <h2 class="section-title">Conclusiones</h2>
+                <div class="card">
+                    <h3 style="color: var(--highlight); margin-bottom: 15px;">Conclusión Analítica y Veredicto Final</h3>
+                    <p style="font-size: 0.95rem; line-height: 1.7; text-align: justify;">
+                        Se concluye con un nivel de confianza del 99.73% que el proceso de control de peso de sensores para <strong>Amazon Robotics</strong> se encuentra en estado <strong>fuera de control estadístico</strong>. 
+                        La inestabilidad no es producto de la dispersión de las piezas individuales (el rango se mantiene estable), sino de un <strong>desplazamiento sistemático del promedio (drift)</strong>.
+                        La aplicación del plan correctivo propuesto permitirá estabilizar la línea de producción y asegurar la calidad requerida de 55.0 gramos nominales.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 7: BIBLIOGRAFÍA E IA UTILIZADA -->
+            <section id="ex1-ia">
+                <h2 class="section-title">Bibliografía e IA <span>utilizada</span></h2>
+                <div class="card">
+                    <h3 style="color: var(--highlight); margin-bottom: 12px;">Registro de Prompts de PC4</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Prompt Enviado</th>
+                                    <th>Objetivo</th>
+                                    <th>Respuesta de la IA</th>
+                                    <th>¿Qué modifiqué?</th>
+                                    <th>Reflexión Personal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="white-space: normal; font-size: 0.85rem;">
+                                        "quieor que leas toda la guia oficial a fondo xq es tood lo que pide el profesor es mas mejor pasalo todo a md de ese word y adapta nuestro index_ejercicicos.html"
+                                    </td>
+                                    <td>Extraer el contenido de la guía oficial de Word y reestructurar el archivo HTML interactivo.</td>
+                                    <td style="white-space: normal; font-size: 0.85rem;">
+                                        Estructuración del contenido en Markdown y propuesta de un plan para adaptar el HTML a las directrices oficiales.
+                                    </td>
+                                    <td style="white-space: normal; font-size: 0.85rem;">
+                                        Aprobé la adaptación e integración del caso Amazon Robotics en el dashboard.
+                                    </td>
+                                    <td style="white-space: normal; font-size: 0.85rem;">
+                                        La IA permite agilizar el diseño de interfaces fluidas para presentar el análisis estadístico de manera limpia.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="white-space: normal; font-size: 0.85rem;">
+                                        "Calcula los límites de control estadísticos para el problema de Amazon Robotics con subgrupos de n=5 y determina si el proceso está en control."
+                                    </td>
+                                    <td>Obtener el cálculo exacto de límites de la carta X̅-R y validar la estabilidad del proceso.</td>
+                                    <td style="white-space: normal; font-size: 0.85rem;">
+                                        Cálculo analítico detallado de límites: UCL=55.4220, CL=55.2720, LCL=55.1220. Veredicto: Fuera de control.
+                                    </td>
+                                    <td style="white-space: normal; font-size: 0.85rem;">
+                                        Contrasté estos cálculos con Minitab y los programé dinámicamente en excel/solucion.xlsx.
+                                    </td>
+                                    <td style="white-space: normal; font-size: 0.85rem;">
+                                        Me ayudó a comprender cómo identificar tendencias mecánicas en gráficos de control y proponer acciones correctivas en planta.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="interpretation-card" style="margin-top: 30px; border-left-color: var(--success); background-color: rgba(16, 185, 129, 0.03);">
+                        <h3 style="color: var(--success);">Declaración de Integridad Académica</h3>
+                        <p style="font-size: 0.95rem; line-height: 1.7; color: #e2dcf7; margin-top: 10px;">
+                            Yo, <strong>Milagros Lidia Mayta Soto</strong>, declaro bajo juramento que la identificación del gráfico de control adecuado, el análisis de estabilidad del peso de sensores, la detección de la deriva del promedio y las propuestas correctivas de ingeniería presentadas en esta PC4 son de mi <strong>autoría intelectual y razonamiento exclusivo</strong>.
+                            <br><br>
+                            El apoyo de la Inteligencia Artificial se limitó al <strong>35% en maquetación de la interfaz web (glassmorphism)</strong>, la creación interactiva de gráficos SVG y la estructura inicial del libro Excel. Toda interpretación crítica responde a mi aprendizaje de la materia.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        
+        <!-- ============================================== -->
+        <!-- EJERCICIO 2 -->
+        <!-- ============================================== -->
+        <div class="exercise-pane" id="exercise-2">
+            
+            <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
+            <section id="ex2-enunciado">
+                <h2 class="section-title">Descripción del <span>problema</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 2</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                            </div>
+                            <div class="interpretation-card">
+                                <h3>Interpretación del Enunciado:</h3>
+                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
+                            </div>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Subgrupo</th>
+                                            <th class="num">X1</th>
+                                            <th class="num">X2</th>
+                                            <th class="num">X3</th>
+                                            <th class="num">X4</th>
+                                            <th class="num">X5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>1</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>2</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 2 - Enunciado')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 2" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 2: IDENTIFICACIÓN DE LA CARTA -->
+            <section id="ex2-seleccion">
+                <h2 class="section-title">Identificación de la <span>carta</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
+                                <br><br>
+                                <strong>Justificación Técnica de Selección:</strong>
+                                <br>
+                                - Naturaleza del dato: (Ej. Variable continua cuantitativa o Atributos cualitativos)
+                                <br>
+                                - Tamaño de subgrupo: (Ej. n = _VAL_ &le; 8 o n &gt; 8)
+                                <br>
+                                - Razón de uso: (Describa por qué se eligió esta carta según la teoría estadística).
+                            </div>
+                        </div>
+                        <div>
+                            <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
+                                <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
+                                <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
+                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
+                                    <br><br>
+                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 3: DESARROLLO EN EXCEL -->
+            <section id="ex2-excel-svg">
+                <h2 class="section-title">Desarrollo en <span>Excel</span></h2>
+                <div class="card">
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: var(--highlight); margin-bottom: 10px;">Fórmulas y Parámetros</h3>
+                        <p style="font-size: 0.95rem; color: #d1c9e8; margin-bottom: 15px;">
+                            Cálculos analíticos aplicados en la hoja de Excel:
+                        </p>
+                        <div class="hipotesis-grid">
+                            <div class="hipotesis-card">
+                                <h3>Línea Central (CL)</h3>
+                                <div class="formula-box">
+                                    <p>Media del Proceso</p>
+                                </div>
+                                <p class="subtext">Valor promedio general de la característica de calidad.</p>
+                            </div>
+                            <div class="hipotesis-card">
+                                <h3>Límites de Control (UCL / LCL)</h3>
+                                <div class="formula-box">
+                                    <p>CL &plusmn; 3σ</p>
+                                </div>
+                                <p class="subtext">Límites calculados con las constantes estadísticas oficiales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Subgrupo</th>
+                                    <th class="num">Valor Promedio X̅</th>
+                                    <th class="num">Dispersión R/S</th>
+                                    <th>Estado Media</th>
+                                    <th>Estado Dispersión</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="cursor: pointer;">
+                                    <td><strong>Muestra 1</strong></td>
+                                    <td class="num">0.00</td>
+                                    <td class="num">0.00</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;">
+                                    <td><strong>Muestra 2</strong></td>
+                                    <td class="num">0.00</td>
+                                    <td class="num">0.00</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chart-split-grid" style="margin-top: 30px; margin-bottom: 30px;">
+                    <div class="chart-flex">
+                        <!-- X-bar Chart -->
+                        <div class="control-chart-container">
+                            <div class="control-chart-header">
+                                <div class="control-chart-title">
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 2
+                                </div>
+                            </div>
+                            <div class="interactive-svg-wrapper">
+                                <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
+                                    <!-- UCL: Y=50 -->
+                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    
+                                    <!-- CL: Y=125 -->
+                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    
+                                    <!-- LCL: Y=200 -->
+                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
+
+                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar detail card -->
+                    <div>
+                        <div class="chart-details-panel">
+                            <h3 class="chart-details-title">Detalles de Auditoría (Ex2)</h3>
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                                Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
+                            </div>
+                            <div class="info-content" style="display: none;">
+                                <div class="chart-details-row">
+                                    <span>Muestra / Subgrupo:</span>
+                                    <span class="info-sg">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Tipo de Gráfico:</span>
+                                    <span class="info-type">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valor Calculado:</span>
+                                    <span class="info-val" style="color: var(--highlight); font-size: 1.1rem;">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valores Observados:</span>
+                                    <span class="info-obs" style="font-family: monospace;">-</span>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Límite UCL:</span>
+                                        <span class="info-ucl">-</span>
+                                    </div>
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Línea Central CL:</span>
+                                        <span class="info-cl">-</span>
+                                    </div>
+                                </div>
+                                <div class="chart-details-row" style="margin-top: 8px; flex-direction: column;">
+                                    <span>Límite LCL:</span>
+                                    <span class="info-lcl">-</span>
+                                </div>
+                                <div class="chart-details-status info-status-badge">
+                                    En Control
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Excel Image Evidence Card -->
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📈 Excel: Evidencia de Cálculos</span>
+                        <span class="software-badge">solucion.xlsx</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 2 - Excel')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Fórmulas y Estructura en Excel</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 4: DESARROLLO EN MINITAB -->
+            <section id="ex2-minitab">
+                <h2 class="section-title">Desarrollo en <span>Minitab</span></h2>
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📊 Minitab: Reporte Diagnóstico</span>
+                        <span class="software-badge">Minitab</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 2 Minitab')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Diagnóstico e Informes del Proceso</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 5: INTERPRETACIÓN -->
+            <section id="ex2-interpretacion">
+                <h2 class="section-title">Interpretación</h2>
+                <div class="card">
+                    <div class="concordancia-banner">
+                        <div class="concordancia-icon">ℹ️</div>
+                        <div>
+                            <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 2)</strong>
+                            <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
+                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 6: CONCLUSIONES -->
+            <section id="ex2-conclusiones">
+                <h2 class="section-title">Conclusiones</h2>
+                <div class="conclusiones-grid">
+                    <div class="veredictos">
+                        <div class="veredicto-card" style="border-left-color: var(--border-color);">
+                            <div class="veredicto-info">
+                                <h4>Conclusión Clave</h4>
+                                <p>Veredicto estadístico sobre el proceso.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conclusiones-detalles">
+                        <h3>Plan de Acción Correctiva</h3>
+                        <p>Describa las acciones de ingeniería recomendadas en planta para este ejercicio.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 7: BIBLIOGRAFÍA E IA UTILIZADA -->
+            <section id="ex2-ia">
+                <h2 class="section-title">Bibliografía e IA <span>utilizada</span></h2>
+                <div class="card">
+                    <h3 style="color: var(--highlight); margin-bottom: 12px;">Registro de Prompts (Ejercicio 2)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Prompt Enviado</th>
+                                    <th>Objetivo</th>
+                                    <th>Respuesta de la IA</th>
+                                    <th>¿Qué modifiqué?</th>
+                                    <th>Reflexión Personal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        
+        <!-- ============================================== -->
+        <!-- EJERCICIO 3 -->
+        <!-- ============================================== -->
+        <div class="exercise-pane" id="exercise-3">
+            
+            <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
+            <section id="ex3-enunciado">
+                <h2 class="section-title">Descripción del <span>problema</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 3</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                            </div>
+                            <div class="interpretation-card">
+                                <h3>Interpretación del Enunciado:</h3>
+                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
+                            </div>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Subgrupo</th>
+                                            <th class="num">X1</th>
+                                            <th class="num">X2</th>
+                                            <th class="num">X3</th>
+                                            <th class="num">X4</th>
+                                            <th class="num">X5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>1</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>2</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 3 - Enunciado')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 3" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 2: IDENTIFICACIÓN DE LA CARTA -->
+            <section id="ex3-seleccion">
+                <h2 class="section-title">Identificación de la <span>carta</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
+                                <br><br>
+                                <strong>Justificación Técnica de Selección:</strong>
+                                <br>
+                                - Naturaleza del dato: (Ej. Variable continua cuantitativa o Atributos cualitativos)
+                                <br>
+                                - Tamaño de subgrupo: (Ej. n = _VAL_ &le; 8 o n &gt; 8)
+                                <br>
+                                - Razón de uso: (Describa por qué se eligió esta carta según la teoría estadística).
+                            </div>
+                        </div>
+                        <div>
+                            <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
+                                <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
+                                <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
+                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
+                                    <br><br>
+                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 3: DESARROLLO EN EXCEL -->
+            <section id="ex3-excel-svg">
+                <h2 class="section-title">Desarrollo en <span>Excel</span></h2>
+                <div class="card">
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: var(--highlight); margin-bottom: 10px;">Fórmulas y Parámetros</h3>
+                        <p style="font-size: 0.95rem; color: #d1c9e8; margin-bottom: 15px;">
+                            Cálculos analíticos aplicados en la hoja de Excel:
+                        </p>
+                        <div class="hipotesis-grid">
+                            <div class="hipotesis-card">
+                                <h3>Línea Central (CL)</h3>
+                                <div class="formula-box">
+                                    <p>Media del Proceso</p>
+                                </div>
+                                <p class="subtext">Valor promedio general de la característica de calidad.</p>
+                            </div>
+                            <div class="hipotesis-card">
+                                <h3>Límites de Control (UCL / LCL)</h3>
+                                <div class="formula-box">
+                                    <p>CL &plusmn; 3σ</p>
+                                </div>
+                                <p class="subtext">Límites calculados con las constantes estadísticas oficiales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Subgrupo</th>
+                                    <th class="num">Valor Promedio X̅</th>
+                                    <th class="num">Dispersión R/S</th>
+                                    <th>Estado Media</th>
+                                    <th>Estado Dispersión</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="cursor: pointer;">
+                                    <td><strong>Muestra 1</strong></td>
+                                    <td class="num">0.00</td>
+                                    <td class="num">0.00</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;">
+                                    <td><strong>Muestra 2</strong></td>
+                                    <td class="num">0.00</td>
+                                    <td class="num">0.00</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chart-split-grid" style="margin-top: 30px; margin-bottom: 30px;">
+                    <div class="chart-flex">
+                        <!-- X-bar Chart -->
+                        <div class="control-chart-container">
+                            <div class="control-chart-header">
+                                <div class="control-chart-title">
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 3
+                                </div>
+                            </div>
+                            <div class="interactive-svg-wrapper">
+                                <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
+                                    <!-- UCL: Y=50 -->
+                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    
+                                    <!-- CL: Y=125 -->
+                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    
+                                    <!-- LCL: Y=200 -->
+                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
+
+                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar detail card -->
+                    <div>
+                        <div class="chart-details-panel">
+                            <h3 class="chart-details-title">Detalles de Auditoría (Ex3)</h3>
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                                Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
+                            </div>
+                            <div class="info-content" style="display: none;">
+                                <div class="chart-details-row">
+                                    <span>Muestra / Subgrupo:</span>
+                                    <span class="info-sg">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Tipo de Gráfico:</span>
+                                    <span class="info-type">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valor Calculado:</span>
+                                    <span class="info-val" style="color: var(--highlight); font-size: 1.1rem;">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valores Observados:</span>
+                                    <span class="info-obs" style="font-family: monospace;">-</span>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Límite UCL:</span>
+                                        <span class="info-ucl">-</span>
+                                    </div>
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Línea Central CL:</span>
+                                        <span class="info-cl">-</span>
+                                    </div>
+                                </div>
+                                <div class="chart-details-row" style="margin-top: 8px; flex-direction: column;">
+                                    <span>Límite LCL:</span>
+                                    <span class="info-lcl">-</span>
+                                </div>
+                                <div class="chart-details-status info-status-badge">
+                                    En Control
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Excel Image Evidence Card -->
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📈 Excel: Evidencia de Cálculos</span>
+                        <span class="software-badge">solucion.xlsx</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 3 - Excel')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Fórmulas y Estructura en Excel</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 4: DESARROLLO EN MINITAB -->
+            <section id="ex3-minitab">
+                <h2 class="section-title">Desarrollo en <span>Minitab</span></h2>
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📊 Minitab: Reporte Diagnóstico</span>
+                        <span class="software-badge">Minitab</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 3 Minitab')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Diagnóstico e Informes del Proceso</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 5: INTERPRETACIÓN -->
+            <section id="ex3-interpretacion">
+                <h2 class="section-title">Interpretación</h2>
+                <div class="card">
+                    <div class="concordancia-banner">
+                        <div class="concordancia-icon">ℹ️</div>
+                        <div>
+                            <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 3)</strong>
+                            <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
+                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 6: CONCLUSIONES -->
+            <section id="ex3-conclusiones">
+                <h2 class="section-title">Conclusiones</h2>
+                <div class="conclusiones-grid">
+                    <div class="veredictos">
+                        <div class="veredicto-card" style="border-left-color: var(--border-color);">
+                            <div class="veredicto-info">
+                                <h4>Conclusión Clave</h4>
+                                <p>Veredicto estadístico sobre el proceso.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conclusiones-detalles">
+                        <h3>Plan de Acción Correctiva</h3>
+                        <p>Describa las acciones de ingeniería recomendadas en planta para este ejercicio.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 7: BIBLIOGRAFÍA E IA UTILIZADA -->
+            <section id="ex3-ia">
+                <h2 class="section-title">Bibliografía e IA <span>utilizada</span></h2>
+                <div class="card">
+                    <h3 style="color: var(--highlight); margin-bottom: 12px;">Registro de Prompts (Ejercicio 3)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Prompt Enviado</th>
+                                    <th>Objetivo</th>
+                                    <th>Respuesta de la IA</th>
+                                    <th>¿Qué modifiqué?</th>
+                                    <th>Reflexión Personal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        
+        <!-- ============================================== -->
+        <!-- EJERCICIO 4 -->
+        <!-- ============================================== -->
+        <div class="exercise-pane" id="exercise-4">
+            
+            <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
+            <section id="ex4-enunciado">
+                <h2 class="section-title">Descripción del <span>problema</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 4</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                            </div>
+                            <div class="interpretation-card">
+                                <h3>Interpretación del Enunciado:</h3>
+                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
+                            </div>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Subgrupo</th>
+                                            <th class="num">X1</th>
+                                            <th class="num">X2</th>
+                                            <th class="num">X3</th>
+                                            <th class="num">X4</th>
+                                            <th class="num">X5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>1</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>2</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 4 - Enunciado')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 4" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 2: IDENTIFICACIÓN DE LA CARTA -->
+            <section id="ex4-seleccion">
+                <h2 class="section-title">Identificación de la <span>carta</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
+                                <br><br>
+                                <strong>Justificación Técnica de Selección:</strong>
+                                <br>
+                                - Naturaleza del dato: (Ej. Variable continua cuantitativa o Atributos cualitativos)
+                                <br>
+                                - Tamaño de subgrupo: (Ej. n = _VAL_ &le; 8 o n &gt; 8)
+                                <br>
+                                - Razón de uso: (Describa por qué se eligió esta carta según la teoría estadística).
+                            </div>
+                        </div>
+                        <div>
+                            <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
+                                <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
+                                <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
+                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
+                                    <br><br>
+                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 3: DESARROLLO EN EXCEL -->
+            <section id="ex4-excel-svg">
+                <h2 class="section-title">Desarrollo en <span>Excel</span></h2>
+                <div class="card">
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: var(--highlight); margin-bottom: 10px;">Fórmulas y Parámetros</h3>
+                        <p style="font-size: 0.95rem; color: #d1c9e8; margin-bottom: 15px;">
+                            Cálculos analíticos aplicados en la hoja de Excel:
+                        </p>
+                        <div class="hipotesis-grid">
+                            <div class="hipotesis-card">
+                                <h3>Línea Central (CL)</h3>
+                                <div class="formula-box">
+                                    <p>Media del Proceso</p>
+                                </div>
+                                <p class="subtext">Valor promedio general de la característica de calidad.</p>
+                            </div>
+                            <div class="hipotesis-card">
+                                <h3>Límites de Control (UCL / LCL)</h3>
+                                <div class="formula-box">
+                                    <p>CL &plusmn; 3σ</p>
+                                </div>
+                                <p class="subtext">Límites calculados con las constantes estadísticas oficiales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Subgrupo</th>
+                                    <th class="num">Valor Promedio X̅</th>
+                                    <th class="num">Dispersión R/S</th>
+                                    <th>Estado Media</th>
+                                    <th>Estado Dispersión</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="cursor: pointer;">
+                                    <td><strong>Muestra 1</strong></td>
+                                    <td class="num">0.00</td>
+                                    <td class="num">0.00</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;">
+                                    <td><strong>Muestra 2</strong></td>
+                                    <td class="num">0.00</td>
+                                    <td class="num">0.00</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chart-split-grid" style="margin-top: 30px; margin-bottom: 30px;">
+                    <div class="chart-flex">
+                        <!-- X-bar Chart -->
+                        <div class="control-chart-container">
+                            <div class="control-chart-header">
+                                <div class="control-chart-title">
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 4
+                                </div>
+                            </div>
+                            <div class="interactive-svg-wrapper">
+                                <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
+                                    <!-- UCL: Y=50 -->
+                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    
+                                    <!-- CL: Y=125 -->
+                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    
+                                    <!-- LCL: Y=200 -->
+                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
+
+                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar detail card -->
+                    <div>
+                        <div class="chart-details-panel">
+                            <h3 class="chart-details-title">Detalles de Auditoría (Ex4)</h3>
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                                Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
+                            </div>
+                            <div class="info-content" style="display: none;">
+                                <div class="chart-details-row">
+                                    <span>Muestra / Subgrupo:</span>
+                                    <span class="info-sg">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Tipo de Gráfico:</span>
+                                    <span class="info-type">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valor Calculado:</span>
+                                    <span class="info-val" style="color: var(--highlight); font-size: 1.1rem;">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valores Observados:</span>
+                                    <span class="info-obs" style="font-family: monospace;">-</span>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Límite UCL:</span>
+                                        <span class="info-ucl">-</span>
+                                    </div>
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Línea Central CL:</span>
+                                        <span class="info-cl">-</span>
+                                    </div>
+                                </div>
+                                <div class="chart-details-row" style="margin-top: 8px; flex-direction: column;">
+                                    <span>Límite LCL:</span>
+                                    <span class="info-lcl">-</span>
+                                </div>
+                                <div class="chart-details-status info-status-badge">
+                                    En Control
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Excel Image Evidence Card -->
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📈 Excel: Evidencia de Cálculos</span>
+                        <span class="software-badge">solucion.xlsx</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 4 - Excel')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Fórmulas y Estructura en Excel</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 4: DESARROLLO EN MINITAB -->
+            <section id="ex4-minitab">
+                <h2 class="section-title">Desarrollo en <span>Minitab</span></h2>
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📊 Minitab: Reporte Diagnóstico</span>
+                        <span class="software-badge">Minitab</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 4 Minitab')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Diagnóstico e Informes del Proceso</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 5: INTERPRETACIÓN -->
+            <section id="ex4-interpretacion">
+                <h2 class="section-title">Interpretación</h2>
+                <div class="card">
+                    <div class="concordancia-banner">
+                        <div class="concordancia-icon">ℹ️</div>
+                        <div>
+                            <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 4)</strong>
+                            <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
+                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 6: CONCLUSIONES -->
+            <section id="ex4-conclusiones">
+                <h2 class="section-title">Conclusiones</h2>
+                <div class="conclusiones-grid">
+                    <div class="veredictos">
+                        <div class="veredicto-card" style="border-left-color: var(--border-color);">
+                            <div class="veredicto-info">
+                                <h4>Conclusión Clave</h4>
+                                <p>Veredicto estadístico sobre el proceso.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conclusiones-detalles">
+                        <h3>Plan de Acción Correctiva</h3>
+                        <p>Describa las acciones de ingeniería recomendadas en planta para este ejercicio.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 7: BIBLIOGRAFÍA E IA UTILIZADA -->
+            <section id="ex4-ia">
+                <h2 class="section-title">Bibliografía e IA <span>utilizada</span></h2>
+                <div class="card">
+                    <h3 style="color: var(--highlight); margin-bottom: 12px;">Registro de Prompts (Ejercicio 4)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Prompt Enviado</th>
+                                    <th>Objetivo</th>
+                                    <th>Respuesta de la IA</th>
+                                    <th>¿Qué modifiqué?</th>
+                                    <th>Reflexión Personal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        
+        <!-- ============================================== -->
+        <!-- EJERCICIO 5 -->
+        <!-- ============================================== -->
+        <div class="exercise-pane" id="exercise-5">
+            
+            <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
+            <section id="ex5-enunciado">
+                <h2 class="section-title">Descripción del <span>problema</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 5</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                            </div>
+                            <div class="interpretation-card">
+                                <h3>Interpretación del Enunciado:</h3>
+                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
+                            </div>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Subgrupo</th>
+                                            <th class="num">X1</th>
+                                            <th class="num">X2</th>
+                                            <th class="num">X3</th>
+                                            <th class="num">X4</th>
+                                            <th class="num">X5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>1</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>2</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 5 - Enunciado')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 5" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 2: IDENTIFICACIÓN DE LA CARTA -->
+            <section id="ex5-seleccion">
+                <h2 class="section-title">Identificación de la <span>carta</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
+                                <br><br>
+                                <strong>Justificación Técnica de Selección:</strong>
+                                <br>
+                                - Naturaleza del dato: (Ej. Variable continua cuantitativa o Atributos cualitativos)
+                                <br>
+                                - Tamaño de subgrupo: (Ej. n = _VAL_ &le; 8 o n &gt; 8)
+                                <br>
+                                - Razón de uso: (Describa por qué se eligió esta carta según la teoría estadística).
+                            </div>
+                        </div>
+                        <div>
+                            <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
+                                <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
+                                <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
+                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
+                                    <br><br>
+                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 3: DESARROLLO EN EXCEL -->
+            <section id="ex5-excel-svg">
+                <h2 class="section-title">Desarrollo en <span>Excel</span></h2>
+                <div class="card">
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: var(--highlight); margin-bottom: 10px;">Fórmulas y Parámetros</h3>
+                        <p style="font-size: 0.95rem; color: #d1c9e8; margin-bottom: 15px;">
+                            Cálculos analíticos aplicados en la hoja de Excel:
+                        </p>
+                        <div class="hipotesis-grid">
+                            <div class="hipotesis-card">
+                                <h3>Línea Central (CL)</h3>
+                                <div class="formula-box">
+                                    <p>Media del Proceso</p>
+                                </div>
+                                <p class="subtext">Valor promedio general de la característica de calidad.</p>
+                            </div>
+                            <div class="hipotesis-card">
+                                <h3>Límites de Control (UCL / LCL)</h3>
+                                <div class="formula-box">
+                                    <p>CL &plusmn; 3σ</p>
+                                </div>
+                                <p class="subtext">Límites calculados con las constantes estadísticas oficiales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Subgrupo</th>
+                                    <th class="num">Valor Promedio X̅</th>
+                                    <th class="num">Dispersión R/S</th>
+                                    <th>Estado Media</th>
+                                    <th>Estado Dispersión</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="cursor: pointer;">
+                                    <td><strong>Muestra 1</strong></td>
+                                    <td class="num">0.00</td>
+                                    <td class="num">0.00</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;">
+                                    <td><strong>Muestra 2</strong></td>
+                                    <td class="num">0.00</td>
+                                    <td class="num">0.00</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chart-split-grid" style="margin-top: 30px; margin-bottom: 30px;">
+                    <div class="chart-flex">
+                        <!-- X-bar Chart -->
+                        <div class="control-chart-container">
+                            <div class="control-chart-header">
+                                <div class="control-chart-title">
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 5
+                                </div>
+                            </div>
+                            <div class="interactive-svg-wrapper">
+                                <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
+                                    <!-- UCL: Y=50 -->
+                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    
+                                    <!-- CL: Y=125 -->
+                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    
+                                    <!-- LCL: Y=200 -->
+                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
+
+                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar detail card -->
+                    <div>
+                        <div class="chart-details-panel">
+                            <h3 class="chart-details-title">Detalles de Auditoría (Ex5)</h3>
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                                Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
+                            </div>
+                            <div class="info-content" style="display: none;">
+                                <div class="chart-details-row">
+                                    <span>Muestra / Subgrupo:</span>
+                                    <span class="info-sg">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Tipo de Gráfico:</span>
+                                    <span class="info-type">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valor Calculado:</span>
+                                    <span class="info-val" style="color: var(--highlight); font-size: 1.1rem;">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valores Observados:</span>
+                                    <span class="info-obs" style="font-family: monospace;">-</span>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Límite UCL:</span>
+                                        <span class="info-ucl">-</span>
+                                    </div>
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Línea Central CL:</span>
+                                        <span class="info-cl">-</span>
+                                    </div>
+                                </div>
+                                <div class="chart-details-row" style="margin-top: 8px; flex-direction: column;">
+                                    <span>Límite LCL:</span>
+                                    <span class="info-lcl">-</span>
+                                </div>
+                                <div class="chart-details-status info-status-badge">
+                                    En Control
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Excel Image Evidence Card -->
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📈 Excel: Evidencia de Cálculos</span>
+                        <span class="software-badge">solucion.xlsx</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 5 - Excel')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Fórmulas y Estructura en Excel</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 4: DESARROLLO EN MINITAB -->
+            <section id="ex5-minitab">
+                <h2 class="section-title">Desarrollo en <span>Minitab</span></h2>
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📊 Minitab: Reporte Diagnóstico</span>
+                        <span class="software-badge">Minitab</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 5 Minitab')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Diagnóstico e Informes del Proceso</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 5: INTERPRETACIÓN -->
+            <section id="ex5-interpretacion">
+                <h2 class="section-title">Interpretación</h2>
+                <div class="card">
+                    <div class="concordancia-banner">
+                        <div class="concordancia-icon">ℹ️</div>
+                        <div>
+                            <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 5)</strong>
+                            <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
+                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 6: CONCLUSIONES -->
+            <section id="ex5-conclusiones">
+                <h2 class="section-title">Conclusiones</h2>
+                <div class="conclusiones-grid">
+                    <div class="veredictos">
+                        <div class="veredicto-card" style="border-left-color: var(--border-color);">
+                            <div class="veredicto-info">
+                                <h4>Conclusión Clave</h4>
+                                <p>Veredicto estadístico sobre el proceso.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conclusiones-detalles">
+                        <h3>Plan de Acción Correctiva</h3>
+                        <p>Describa las acciones de ingeniería recomendadas en planta para este ejercicio.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 7: BIBLIOGRAFÍA E IA UTILIZADA -->
+            <section id="ex5-ia">
+                <h2 class="section-title">Bibliografía e IA <span>utilizada</span></h2>
+                <div class="card">
+                    <h3 style="color: var(--highlight); margin-bottom: 12px;">Registro de Prompts (Ejercicio 5)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Prompt Enviado</th>
+                                    <th>Objetivo</th>
+                                    <th>Respuesta de la IA</th>
+                                    <th>¿Qué modifiqué?</th>
+                                    <th>Reflexión Personal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        
+        <!-- ============================================== -->
+        <!-- EJERCICIO 6 -->
+        <!-- ============================================== -->
+        <div class="exercise-pane" id="exercise-6">
+            
+            <!-- SECCIÓN 1: DESCRIPCIÓN DEL PROBLEMA -->
+            <section id="ex6-enunciado">
+                <h2 class="section-title">Descripción del <span>problema</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                Coloque aquí la descripción detallada del problema correspondiente al <strong>Ejercicio 6</strong>. Explique las variables que se miden, los factores de perturbación controlados (filas y columnas) y el objetivo industrial del análisis estadístico.
+                            </div>
+                            <div class="interpretation-card">
+                                <h3>Interpretación del Enunciado:</h3>
+                                <p>Escriba la interpretación física de las variables de este ejercicio y el objetivo de la prueba.</p>
+                            </div>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Subgrupo</th>
+                                            <th class="num">X1</th>
+                                            <th class="num">X2</th>
+                                            <th class="num">X3</th>
+                                            <th class="num">X4</th>
+                                            <th class="num">X5</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>1</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>2</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3</strong></td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                            <td class="num">0.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="evidence-container" onclick="openLightbox('img/image.png', 'Ejercicio 6 - Enunciado')">
+                                <img src="img/image.png" alt="Enunciado Ejercicio 6" onerror="this.src='img/image.png';">
+                                <div class="evidence-overlay"><span class="zoom-icon">🔍</span><span class="zoom-text">Ampliar Enunciado</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 2: IDENTIFICACIÓN DE LA CARTA -->
+            <section id="ex6-seleccion">
+                <h2 class="section-title">Identificación de la <span>carta</span></h2>
+                <div class="card">
+                    <div class="problem-grid">
+                        <div>
+                            <div class="desc-box">
+                                <strong>Carta Seleccionada:</strong> (Escriba aquí el tipo de carta, Ej. Gráfico X̅-R, X̅-S, p, np, c, u)
+                                <br><br>
+                                <strong>Justificación Técnica de Selección:</strong>
+                                <br>
+                                - Naturaleza del dato: (Ej. Variable continua cuantitativa o Atributos cualitativos)
+                                <br>
+                                - Tamaño de subgrupo: (Ej. n = _VAL_ &le; 8 o n &gt; 8)
+                                <br>
+                                - Razón de uso: (Describa por qué se eligió esta carta según la teoría estadística).
+                            </div>
+                        </div>
+                        <div>
+                            <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%;">
+                                <h3>¿Qué está pasando en el Proceso? (Diagnóstico)</h3>
+                                <p style="font-size: 0.92rem; line-height: 1.6; color: #e2dcf7; margin-top: 8px;">
+                                    <strong>En Excel:</strong> (Describa detalladamente el comportamiento observado en los gráficos de Excel: límites calculados, puntos inestables o tendencias fuera de límites).
+                                    <br><br>
+                                    <strong>En Minitab:</strong> (Detalle el diagnóstico del Asistente de Minitab: porcentaje de subgrupos inestables, alertas rojas y si la variación o el promedio son estables).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 3: DESARROLLO EN EXCEL -->
+            <section id="ex6-excel-svg">
+                <h2 class="section-title">Desarrollo en <span>Excel</span></h2>
+                <div class="card">
+                    <div style="margin-bottom: 25px;">
+                        <h3 style="color: var(--highlight); margin-bottom: 10px;">Fórmulas y Parámetros</h3>
+                        <p style="font-size: 0.95rem; color: #d1c9e8; margin-bottom: 15px;">
+                            Cálculos analíticos aplicados en la hoja de Excel:
+                        </p>
+                        <div class="hipotesis-grid">
+                            <div class="hipotesis-card">
+                                <h3>Línea Central (CL)</h3>
+                                <div class="formula-box">
+                                    <p>Media del Proceso</p>
+                                </div>
+                                <p class="subtext">Valor promedio general de la característica de calidad.</p>
+                            </div>
+                            <div class="hipotesis-card">
+                                <h3>Límites de Control (UCL / LCL)</h3>
+                                <div class="formula-box">
+                                    <p>CL &plusmn; 3σ</p>
+                                </div>
+                                <p class="subtext">Límites calculados con las constantes estadísticas oficiales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Subgrupo</th>
+                                    <th class="num">Valor Promedio X̅</th>
+                                    <th class="num">Dispersión R/S</th>
+                                    <th>Estado Media</th>
+                                    <th>Estado Dispersión</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="cursor: pointer;">
+                                    <td><strong>Muestra 1</strong></td>
+                                    <td class="num">0.00</td>
+                                    <td class="num">0.00</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                                <tr style="cursor: pointer;">
+                                    <td><strong>Muestra 2</strong></td>
+                                    <td class="num">0.00</td>
+                                    <td class="num">0.00</td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                    <td><span class="badge badge-sig">En Control</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chart-split-grid" style="margin-top: 30px; margin-bottom: 30px;">
+                    <div class="chart-flex">
+                        <!-- X-bar Chart -->
+                        <div class="control-chart-container">
+                            <div class="control-chart-header">
+                                <div class="control-chart-title">
+                                    <span style="color: var(--highlight);">📈</span> Gráfico de Medias (Carta X̅) - Plantilla Ejercicio 6
+                                </div>
+                            </div>
+                            <div class="interactive-svg-wrapper">
+                                <svg width="100%" height="100%" viewBox="0 0 540 250" preserveAspectRatio="none">
+                                    <line x1="50" y1="25" x2="520" y2="25" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="125" x2="520" y2="125" stroke="#1f1837" stroke-width="1"/>
+                                    <line x1="50" y1="225" x2="520" y2="225" stroke="#1f1837" stroke-width="1"/>
+                                    
+                                    <line x1="50" y1="20" x2="50" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    <line x1="50" y1="230" x2="530" y2="230" stroke="#7c3aed" stroke-width="1.5" opacity="0.5"/>
+                                    
+                                    <!-- UCL: Y=50 -->
+                                    <line x1="50" y1="50" x2="520" y2="50" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="53" fill="#ef4444" font-size="9" font-family="Space Grotesk">UCL</text>
+                                    
+                                    <!-- CL: Y=125 -->
+                                    <line x1="50" y1="125" x2="520" y2="125" class="svg-cl-line" stroke="#10b981"/>
+                                    <text x="522" y="128" fill="#10b981" font-size="9" font-family="Space Grotesk">CL</text>
+                                    
+                                    <!-- LCL: Y=200 -->
+                                    <line x1="50" y1="200" x2="520" y2="200" class="svg-limit-line" stroke="#ef4444"/>
+                                    <text x="522" y="203" fill="#ef4444" font-size="9" font-family="Space Grotesk">LCL</text>
+
+                                    <polyline points="100,125 220,125 340,125 460,125" class="svg-data-line" stroke="#d8b4fe"/>
+                                    
+                                    <circle cx="100" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="1" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="220" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="2" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="340" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="3" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                    <circle cx="460" cy="125" r="6" class="svg-point" fill="#7c3aed" stroke="#ffffff" stroke-width="1.5"
+                                            data-sg="4" data-type="xbar" data-val="0.00" data-status="Dentro de Control" 
+                                            data-lcl="0.00" data-ucl="0.00" data-cl="0.00" data-obs="0, 0, 0, 0, 0"
+                                            onmouseover="showChartPointInfo(this)" onmouseout="clearChartPointInfo()"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar detail card -->
+                    <div>
+                        <div class="chart-details-panel">
+                            <h3 class="chart-details-title">Detalles de Auditoría (Ex6)</h3>
+                            <div class="info-placeholder" style="text-align: center; color: var(--text-secondary); font-style: italic; padding: 20px 0;">
+                                Pase el cursor sobre los círculos del gráfico para auditar los subgrupos.
+                            </div>
+                            <div class="info-content" style="display: none;">
+                                <div class="chart-details-row">
+                                    <span>Muestra / Subgrupo:</span>
+                                    <span class="info-sg">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Tipo de Gráfico:</span>
+                                    <span class="info-type">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valor Calculado:</span>
+                                    <span class="info-val" style="color: var(--highlight); font-size: 1.1rem;">-</span>
+                                </div>
+                                <div class="chart-details-row">
+                                    <span>Valores Observados:</span>
+                                    <span class="info-obs" style="font-family: monospace;">-</span>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; border-top: 1px dashed rgba(124, 58, 237, 0.2); padding-top: 10px;">
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Límite UCL:</span>
+                                        <span class="info-ucl">-</span>
+                                    </div>
+                                    <div class="chart-details-row" style="flex-direction: column;">
+                                        <span>Línea Central CL:</span>
+                                        <span class="info-cl">-</span>
+                                    </div>
+                                </div>
+                                <div class="chart-details-row" style="margin-top: 8px; flex-direction: column;">
+                                    <span>Límite LCL:</span>
+                                    <span class="info-lcl">-</span>
+                                </div>
+                                <div class="chart-details-status info-status-badge">
+                                    En Control
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Excel Image Evidence Card -->
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📈 Excel: Evidencia de Cálculos</span>
+                        <span class="software-badge">solucion.xlsx</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg', 'Ejercicio 6 - Excel')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg" alt="Excel" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.58 AM (2).jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Fórmulas y Estructura en Excel</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        (Describa el uso de fórmulas y referencias de celdas en la hoja Excel. Por ejemplo, la aplicación de PROMEDIO, MAX, MIN para calcular los límites de control de forma dinámica en base a las constantes del subgrupo).
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 4: DESARROLLO EN MINITAB -->
+            <section id="ex6-minitab">
+                <h2 class="section-title">Desarrollo en <span>Minitab</span></h2>
+                <div class="software-card">
+                    <div class="software-header">
+                        <span class="software-name">📊 Minitab: Reporte Diagnóstico</span>
+                        <span class="software-badge">Minitab</span>
+                    </div>
+                    <div class="software-content">
+                        <div class="problem-grid">
+                            <div>
+                                <div class="evidence-container" onclick="openLightbox('img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg', 'Ejercicio 6 Minitab')">
+                                    <img src="img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg" alt="Minitab" onerror="this.src='img/WhatsApp Image 2026-06-12 at 12.16.57 AM.jpeg';">
+                                    <div class="evidence-overlay"><span class="zoom-icon">🔍</span></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="interpretation-card" style="border-left-color: var(--highlight); background: rgba(124, 58, 237, 0.03); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                                    <h3>Diagnóstico e Informes del Proceso</h3>
+                                    <p style="font-size: 0.95rem; color: #d1c9e8; line-height: 1.6;">
+                                        Coloque aquí el reporte de estabilidad generado por el software especializado Minitab. Describa las alarmas o advertencias de inestabilidad arrojadas en la carta de control.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 5: INTERPRETACIÓN -->
+            <section id="ex6-interpretacion">
+                <h2 class="section-title">Interpretación</h2>
+                <div class="card">
+                    <div class="concordancia-banner">
+                        <div class="concordancia-icon">ℹ️</div>
+                        <div>
+                            <strong style="color: #ffffff; font-size: 1.1rem;">Estado del Proceso (Ejercicio 6)</strong>
+                            <p style="color: #a7f3d0; font-size: 0.9rem; margin-top: 4px;">
+                                Describa si el proceso se encuentra bajo control estadístico o si presenta inestabilidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 6: CONCLUSIONES -->
+            <section id="ex6-conclusiones">
+                <h2 class="section-title">Conclusiones</h2>
+                <div class="conclusiones-grid">
+                    <div class="veredictos">
+                        <div class="veredicto-card" style="border-left-color: var(--border-color);">
+                            <div class="veredicto-info">
+                                <h4>Conclusión Clave</h4>
+                                <p>Veredicto estadístico sobre el proceso.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conclusiones-detalles">
+                        <h3>Plan de Acción Correctiva</h3>
+                        <p>Describa las acciones de ingeniería recomendadas en planta para este ejercicio.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN 7: BIBLIOGRAFÍA E IA UTILIZADA -->
+            <section id="ex6-ia">
+                <h2 class="section-title">Bibliografía e IA <span>utilizada</span></h2>
+                <div class="card">
+                    <h3 style="color: var(--highlight); margin-bottom: 12px;">Registro de Prompts (Ejercicio 6)</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Prompt Enviado</th>
+                                    <th>Objetivo</th>
+                                    <th>Respuesta de la IA</th>
+                                    <th>¿Qué modifiqué?</th>
+                                    <th>Reflexión Personal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+
+    </div>
+
+    <!-- PREMIUM BACKGROUND ORBS -->
+    <div class="ambient-orb orb-purple"></div>
+    <div class="ambient-orb orb-pink"></div>
+
+    <!-- LIGHTBOX MODAL FOR ZOOMING IMAGES -->
+    <div id="lightbox" class="modal" onclick="closeLightbox()">
+        <span class="modal-close" onclick="closeLightbox()">&times;</span>
+        <img class="modal-content" id="lightbox-img" onclick="event.stopPropagation()">
+        <div class="modal-caption" id="lightbox-caption"></div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let currentExercise = 1;
+
+        // Switch Exercise Active Pane
+        function switchExercise(exNum) {
+            currentExercise = exNum;
+            
+            // Scroll smoothly to navigation bar
+            document.querySelector('.nav-exercises').scrollIntoView({ behavior: 'smooth' });
+
+            // Toggle nav button active class
+            document.querySelectorAll('.nav-btn').forEach((btn, idx) => {
+                if (idx + 1 === exNum) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Toggle panes
+            const panes = document.querySelectorAll('.exercise-pane');
+            panes.forEach(pane => {
+                pane.classList.remove('active');
+                pane.style.display = 'none';
+            });
+
+            const targetPane = document.getElementById(`exercise-${exNum}`);
+            if (targetPane) {
+                targetPane.style.display = 'block';
+                // Trigger reflow for CSS animation transition
+                targetPane.offsetHeight;
+                targetPane.classList.add('active');
+            }
+        }
+
+        // Tab Switching for Minitab / Excel Solutions
+        function switchSoftwareTab(button, tabId) {
+            const card = button.closest('.software-card');
+            
+            // Deactivate other tabs
+            card.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Deactivate other panels
+            card.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+            
+            // Activate selected pane
+            card.querySelector(`#${tabId}`).classList.add('active');
+        }
+
+        // Lightbox modal logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        // Open Lightbox
+        function openLightbox(src, caption) {
+            lightbox.classList.add('active');
+            lightboxImg.src = src;
+            lightboxCaption.innerHTML = caption;
+            document.body.style.overflow = 'hidden'; // Disable scroll
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Enable scroll
+        }
+
+        // Keyboard navigation for Lightbox
+        document.addEventListener('keydown', function (event) {
+            if (!lightbox.classList.contains('active')) return;
+            if (event.key === "Escape") closeLightbox();
+        });
+
+        // Scroll Progress indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progress = document.getElementById('scroll-progress');
+            if (progress) progress.style.width = scrolled + '%';
+        });
+
+        // Interactive SVG Chart Points Logic (Generic using classes relative to closest .chart-split-grid)
+        function showChartPointInfo(point) {
+            const sg = point.getAttribute('data-sg');
+            const type = point.getAttribute('data-type');
+            const val = point.getAttribute('data-val');
+            const status = point.getAttribute('data-status');
+            const ucl = point.getAttribute('data-ucl');
+            const cl = point.getAttribute('data-cl');
+            const lcl = point.getAttribute('data-lcl');
+            const obs = point.getAttribute('data-obs');
+
+            // Find elements relative to the point's chart grid container
+            const grid = point.closest('.chart-split-grid');
+            if (!grid) return;
+            
+            const placeholder = grid.querySelector('.info-placeholder');
+            const content = grid.querySelector('.info-content');
+            
+            if (placeholder) placeholder.style.display = 'none';
+            if (content) content.style.display = 'block';
+
+            const infoSg = grid.querySelector('.info-sg');
+            const infoType = grid.querySelector('.info-type');
+            const infoVal = grid.querySelector('.info-val');
+            const infoObs = grid.querySelector('.info-obs');
+            const infoUcl = grid.querySelector('.info-ucl');
+            const infoCl = grid.querySelector('.info-cl');
+            const infoLcl = grid.querySelector('.info-lcl');
+            const infoStatusBadge = grid.querySelector('.info-status-badge');
+
+            if (infoSg) infoSg.textContent = sg;
+            if (infoType) infoType.textContent = type === 'xbar' ? 'Carta X̅ (Media del Peso)' : 'Carta R (Rango)';
+            if (infoVal) infoVal.textContent = val + ' g';
+            if (infoObs) infoObs.textContent = '[' + obs + ']';
+            if (infoUcl) infoUcl.textContent = ucl + ' g';
+            if (infoCl) infoCl.textContent = cl + ' g';
+            if (infoLcl) infoLcl.textContent = lcl + ' g';
+
+            if (infoStatusBadge) {
+                infoStatusBadge.textContent = status;
+                if (status.includes('Fuera')) {
+                    infoStatusBadge.className = 'chart-details-status info-status-badge status-out';
+                } else {
+                    infoStatusBadge.className = 'chart-details-status info-status-badge status-in';
+                }
+            }
+
+            point.setAttribute('r', '10');
+            point.style.fill = '#d8b4fe';
+        }
+
+        function clearChartPointInfo() {
+            document.querySelectorAll('.svg-point').forEach(point => {
+                if (point.classList.contains('out-of-control')) {
+                    point.setAttribute('r', '6');
+                    point.style.fill = '';
+                } else {
+                    point.setAttribute('r', '6');
+                    point.style.fill = '#7c3aed';
+                }
+            });
+        }
+
+        // Highlight point in chart and scroll
+        function highlightSvgPoint(sgNum) {
+            const point = document.querySelector(`.svg-point[data-sg="${sgNum}"][data-type="xbar"]`);
+            if (point) {
+                document.getElementById('ex1-excel-svg').scrollIntoView({ behavior: 'smooth' });
+                showChartPointInfo(point);
+            }
+        }
+    </script>
+</body>
+
+</html>
